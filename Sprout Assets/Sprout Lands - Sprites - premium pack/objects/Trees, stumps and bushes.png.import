@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Trees, stumps and bushes.png-78a6ee9e730a90318a9dda4602c2776e.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprout Assets/Sprout Lands - Sprites - premium pack/objects/Trees, stumps and bushes.png"
+dest_files=[ "res://.import/Trees, stumps and bushes.png-78a6ee9e730a90318a9dda4602c2776e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
