@@ -17,6 +17,8 @@ public class boatMovement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 10;
     }
 
 
