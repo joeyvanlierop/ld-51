@@ -24,6 +24,10 @@ public class CharacterSortingLayerHandler : MonoBehaviour
         foreach (GameObject upHillCollider in GameObject.FindGameObjectsWithTag("Up Hill Collider")) {
             upHillColliders.Add(upHillCollider.GetComponent<Collider2D>());
         }
+        foreach (GameObject upHillCollider in GameObject.FindGameObjectsWithTag("Ladder Trigger")) {
+            upHillColliders.Add(upHillCollider.GetComponent<Collider2D>());
+        }
+        
         foreach (GameObject hillRidgeCollider in GameObject.FindGameObjectsWithTag("Hill Collider")) {
             hillRidgeColliders.Add(hillRidgeCollider.GetComponent<Collider2D>());
         }
