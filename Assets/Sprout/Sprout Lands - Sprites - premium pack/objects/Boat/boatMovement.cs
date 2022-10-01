@@ -9,13 +9,16 @@ public class boatMovement : MonoBehaviour
     public Animator animator;
     bool stopBoat = false;
     bool boatStopped = false;
-    public float slowDownTime = 1f;
+    bool startBoat = false;
+    public float slowDownTime = 5f;
     float timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 10;
     }
 
 
@@ -49,6 +52,21 @@ public class boatMovement : MonoBehaviour
             } else {
                 timeElapsed = 0;
                 boatStopped = false;
+                startBoat = true;
+            }
+            return;
+        }
+
+        if (startBoat) {
+            if (timeElapsed < slowDownTime)
+            {
+                rb.velocity = Vector2.Lerp(new Vector2(0, 0), new Vector2(-moveSpeed, 0), timeElapsed / slowDownTime);
+                timeElapsed += Time.deltaTime;
+            } else {
+                boatStopped = false;
+                stopBoat = false;
+                startBoat = false;
+                timeElapsed = 0;
             }
             return;
         }
