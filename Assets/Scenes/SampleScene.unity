@@ -404,11 +404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7533902270269295127, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.80509543
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 7533902270269295127, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5062746
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 7533902270269295127, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 290979736}
   - component: {fileID: 290979738}
   - component: {fileID: 290979737}
+  - component: {fileID: 290979739}
   m_Layer: 0
   m_Name: Hills
   m_TagString: Untagged
@@ -781,7 +782,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 2, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -971,6 +972,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &290979739
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290979735}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
