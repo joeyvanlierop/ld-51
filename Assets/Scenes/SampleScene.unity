@@ -1376,28 +1376,6 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
---- !u!1 &820928985 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7763395360458546639, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-  m_PrefabInstance: {fileID: 7763395359667289110}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &820928991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820928985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc35e19480b0c5a49b777b3705ccf14e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 11400000, guid: 628a8cb0c3c49be4d944e4a376e62c53, type: 2}
-  - {fileID: 11400000, guid: 0dc798ac3585e0f4ca39c51e43e83400, type: 2}
-  - {fileID: 11400000, guid: 5c1f2f719d8130b45963e208750d7ab8, type: 2}
-  - {fileID: 11400000, guid: 0c26e527a265b764ebae5f80f2057cf1, type: 2}
 --- !u!1 &872550568
 GameObject:
   m_ObjectHideFlags: 0
@@ -20907,67 +20885,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
---- !u!1001 &7763395359667289110
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7763395360458546634, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -101741624, guid: 56f83d7a35e4c2043b3feb52dfadfd21, type: 3}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.6600001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.03550005
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546635, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7763395360458546639, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
-      propertyPath: m_Name
-      value: Carrot Seeds
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f9996766adacdf478f2bb759b6d8e5e, type: 3}
 --- !u!1001 &8765616746983236023
 PrefabInstance:
   m_ObjectHideFlags: 0

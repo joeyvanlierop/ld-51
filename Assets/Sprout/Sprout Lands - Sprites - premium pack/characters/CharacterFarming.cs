@@ -39,31 +39,41 @@ public class CharacterFarming : MonoBehaviour
 
   void PerformAction()
   {
+    var target = GetTarget();
     var heldPlant = characterInventory.heldItem?.GetComponent<Plant>();
-    if (!heldPlant)
-      Till();
+    var isTilled = !!tilledTilemap.GetTile(target);
+    if (heldPlant)
+      Plant(heldPlant, target);
+    else if (!isTilled)
+      Till(target);
     else
-      Plant(heldPlant);
+      Harvest(target);
   }
 
-  void Till()
+  void Till(Vector3Int target)
   {
-    var target = GetTarget();
     var groundTile = groundTilemap.GetTile(target);
     if (!groundTile)
       return;
     tilledTilemap.SetTile(target, tilledTile);
   }
 
-  void Plant(Plant plant)
+  void Plant(Plant plant, Vector3Int target)
   {
-    var target = GetTarget();
     var tile = tilledTilemap.GetTile(target);
     if (!tile)
       return;
-    plantManager.PlantPlant(plant, target);
-    characterInventory.heldItem = null;
-    plant.gameObject.SetActive(false);
+    if (plantManager.Plant(plant, target))
+    {
+      characterInventory.heldItem = null;
+      plant.gameObject.SetActive(false);
+    }
+  }
+
+  void Harvest(Vector3Int target)
+  {
+    tilledTilemap.SetTile(target, null);
+    plantManager.Harvest(target);
   }
 
   Vector3Int GetTarget()

@@ -42,6 +42,7 @@ public class CharacterInventory : MonoBehaviour
         heldItem.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         heldItem.GetComponent<BoxCollider2D>().enabled = false;
         heldItem.transform.localPosition = new Vector2(0, 0);
+        break;
       }
     }
   }
