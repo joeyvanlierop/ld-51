@@ -80,7 +80,12 @@ public class CharacterInventory : MonoBehaviour
 
   void Update()
   {
-    heldItemBubble.GetComponent<SpriteRenderer>().enabled = heldItem == true;
+    // heldItemBubble.GetComponent<SpriteRenderer>().enabled = heldItem == true;
+    heldItemBubble.GetComponent<SpriteRenderer>().enabled = false;
+    if (heldItem)
+    {
+      heldItem.transform.localPosition = Vector2.up * Mathf.Cos(Time.time * 4) / 3;
+    }
   }
 
   private void OnEnable()
