@@ -5,12 +5,12 @@ using UnityEngine;
 public class boatMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float moveSpeed = 10;
+    public float moveSpeed = 5;
     public Animator animator;
     bool stopBoat = false;
     bool boatStopped = false;
     bool startBoat = false;
-    public float slowDownTime = 5f;
+    public float slowDownTime = 1f;
     float timeElapsed = 0;
 
     // Start is called before the first frame update
