@@ -8,6 +8,9 @@ public class boatMovement : MonoBehaviour
     public float moveSpeed = 10;
     public Animator animator;
     bool stopBoat = false;
+    bool boatStopped = false;
+    public float slowDownTime = 1f;
+    float timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,25 @@ public class boatMovement : MonoBehaviour
     void FixedUpdate()
     {   
         if (stopBoat) {
-            rb.velocity = Vector2.Lerp(new Vector2(-moveSpeed, 0), new Vector2(0, 0), 0.6f);
+            if (timeElapsed < slowDownTime)
+            {
+                rb.velocity = Vector2.Lerp(new Vector2(-moveSpeed, 0), new Vector2(0, 0), timeElapsed / slowDownTime);
+                timeElapsed += Time.deltaTime;
+            } else {
+                boatStopped = true;
+                stopBoat = false;
+                timeElapsed = 0;
+            }
+            return;
+        }
+
+        if (boatStopped) {
+            if (timeElapsed < 10) {
+                timeElapsed += Time.deltaTime;
+            } else {
+                timeElapsed = 0;
+                boatStopped = false;
+            }
             return;
         }
         rb.velocity = new Vector2(-moveSpeed, 0);
