@@ -134,6 +134,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7533902270269295125, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533902270269295125, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533902270269295125, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7533902270269295126, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
       propertyPath: m_SortingOrder
       value: 5
