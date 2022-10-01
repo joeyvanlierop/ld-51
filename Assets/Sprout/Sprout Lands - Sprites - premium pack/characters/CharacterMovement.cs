@@ -9,7 +9,7 @@ public enum Direction
   RIGHT
 }
 
-public class CharacterInput : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
 
   public Animator animator;
