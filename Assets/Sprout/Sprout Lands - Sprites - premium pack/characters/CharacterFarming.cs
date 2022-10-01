@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -5,9 +6,11 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(CharacterMovement))]
 public class CharacterFarming : MonoBehaviour
 {
+  public List<TileBase> blacklistedTiles = new List<TileBase>();
   public Tile tilledTile;
   public Tile tilledPreviewTile;
   public Tilemap groundTilemap;
+  public Tilemap hillTilemap;
   public Tilemap tilledTilemap;
   public Tilemap tilledPreviewTilemap;
   private CharacterMovement characterMovement;
@@ -32,9 +35,26 @@ public class CharacterFarming : MonoBehaviour
     if (!target.Equals(previousPos))
     {
       tilledPreviewTilemap.SetTile(previousPos, null);
+      if (IsValidTarget(target))
+        tilledPreviewTile.color = Color.white;
+      else
+        tilledPreviewTile.color = Color.red;
       tilledPreviewTilemap.SetTile(target, tilledPreviewTile);
       previousPos = target;
     }
+  }
+
+  bool IsValidTarget(Vector3Int target)
+  {
+    var groundTile = groundTilemap.GetTile(target);
+    var hillTile = hillTilemap.GetTile(target);
+    if (!hillTile && !groundTile)
+      return false;
+    if (hillTile && !blacklistedTiles.Contains(hillTile))
+      return true;
+    if (!hillTile && !blacklistedTiles.Contains(groundTile))
+      return true;
+    return false;
   }
 
   void PerformAction()
@@ -53,8 +73,7 @@ public class CharacterFarming : MonoBehaviour
 
   void Till(Vector3Int target)
   {
-    var groundTile = groundTilemap.GetTile(target);
-    if (!groundTile)
+    if (!IsValidTarget(target))
       return;
     tilledTilemap.SetTile(target, tilledTile);
   }

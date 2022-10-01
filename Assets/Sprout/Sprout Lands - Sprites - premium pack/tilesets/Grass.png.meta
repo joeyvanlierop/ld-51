@@ -1122,8 +1122,9 @@ TextureImporter:
       - - {x: -8, y: 8}
         - {x: -8, y: -8}
         - {x: 8, y: -8}
-        - {x: 8, y: -6}
-        - {x: -6, y: -6}
+        - {x: 8, y: 0}
+        - {x: 0, y: 0}
+        - {x: -6, y: 4}
         - {x: -6, y: 8}
       tessellationDetail: 0
       bones: []
@@ -1146,10 +1147,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: -6}
+      - - {x: -8, y: 0}
         - {x: -8, y: -8}
         - {x: 8, y: -8}
-        - {x: 8, y: -6}
+        - {x: 8, y: 0}
       tessellationDetail: 0
       bones: []
       spriteID: 0f5d6e876f2a34441bfa4c2b073e05af
@@ -1172,8 +1173,9 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: 6, y: 8}
-        - {x: 6, y: -6}
-        - {x: -8, y: -6}
+        - {x: 6, y: 5}
+        - {x: 0, y: 0}
+        - {x: -8, y: 0}
         - {x: -8, y: -8}
         - {x: 8, y: -8}
         - {x: 8, y: 8}
@@ -1692,14 +1694,14 @@ TextureImporter:
       Grass_30: 926993169
       Grass_64: -1490285505
       Grass_27: 1451699633
-      Grass_8: 2099690
       Grass_19: 380027562
+      Grass_9: 1953353433
       Grass_58: 536625016
       Grass_24: 597033656
       Grass_52: 1517915706
-      Grass_9: 1953353433
-      Grass_70: 1382068855
       Grass_23: -53402969
+      Grass_70: 1382068855
+      Grass_8: 2099690
       Grass_35: -240910439
       Grass_38: -329199137
       Grass_21: 881236996
