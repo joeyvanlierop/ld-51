@@ -11,7 +11,7 @@ public class CharacterInput : MonoBehaviour
   public float moveY;
   public float forceX;
   public float forceY;
-  public InputAction controls;
+  public InputAction movementAction;
 
   private Rigidbody2D rb;
 
@@ -31,8 +31,6 @@ public class CharacterInput : MonoBehaviour
     animator.SetBool("movingRight", moveX > 0);
     animator.SetBool("movingUp", moveY > 0);
     animator.SetBool("movingDown", moveY < 0);
-
-
   }
 
   void FixedUpdate()
@@ -44,11 +42,11 @@ public class CharacterInput : MonoBehaviour
 
   private void OnEnable()
   {
-    controls.Enable();
+    movementAction.Enable();
   }
 
   private void Disable()
   {
-    controls.Disable();
+    movementAction.Disable();
   }
 }
