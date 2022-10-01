@@ -515,21 +515,21 @@ MonoBehaviour:
   groundTilemap: {fileID: 1131671723}
   tilledTilemap: {fileID: 1601058062}
   tilledPreviewTilemap: {fileID: 1184079259}
-  tillAction:
-    m_Name: Till
+  action:
+    m_Name: Action
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 4a4f42be-7c71-429a-9422-ea5ff03ddaba
+    m_Id: 44b7b19f-2d11-4c90-a670-c68189dd1afc
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: c306b9da-ab15-42fd-8501-ab6be7205b47
+      m_Id: d8958e1b-9732-4229-9b78-3c1ca4217b3c
       m_Path: <Keyboard>/space
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Till
+      m_Action: Action
       m_Flags: 0
     m_Flags: 0
 --- !u!61 &87399687
