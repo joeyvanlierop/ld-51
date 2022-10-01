@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class boatSoliciting : MonoBehaviour
 {
 
     public Dictionary<GameObject, int> wantedItems = new Dictionary<GameObject, int>();
+    Dictionary<GameObject, List<GameObject>> displayedItems = new Dictionary<GameObject, List<GameObject>>();
     public Animator animator;
     public List<GameObject> RequestedIemsBubbles = new List<GameObject>();
     public GameObject RequestedIemsBubble;
@@ -18,20 +19,37 @@ public class boatSoliciting : MonoBehaviour
     void Start()
     {   
         rb = gameObject.GetComponent<Rigidbody2D>();
+        foreach (var wantedItem in wantedItems) {
+            List<GameObject> items = new List<GameObject>();
+            for(int i = 0; i < wantedItem.Value; i++) {
+                items.Add(Instantiate(wantedItem.Key));
+            }
+            displayedItems.Add(wantedItem.Key ,items);
+        }
         SetWantBubble();
     }
 
     void SetWantBubble() {
-        int distinctItems = wantedItems.Count;
-        Vector2 size = RequestedIemsBubble.GetComponent<SpriteRenderer>().bounds.size;
-        int i = 0;
+        int totalItems = 0;
+        Vector2 iconSize = new Vector2(0,0);
         foreach (var wantedItemPair in wantedItems) {
-            var wantedItem = wantedItemPair.Key;
-            wantedItem.transform.SetParent(RequestedIemsBubble.transform);
-            if (distinctItems == 1) {
-                wantedItem.transform.localPosition =  new Vector2(0, 0);
+            iconSize = wantedItemPair.Key.GetComponent<SpriteRenderer>().bounds.size;
+            totalItems += wantedItemPair.Value;
+        }
+        float size_X = iconSize.x * totalItems;
+        Vector2 newSize = new Vector2(size_X, RequestedIemsBubbles[0].GetComponent<SpriteRenderer>().bounds.size.y);
+        Vector2 betterSize = new Vector2(newSize.x + iconSize.x, newSize.y);
+        RequestedIemsBubble.GetComponent<SpriteRenderer>().size = betterSize;
+        RequestedIemsBubble.transform.localPosition = new Vector2(betterSize.x / 2 + iconSize.x / 1.5f, 0);
+
+        int i = 0;
+        foreach (var pair in displayedItems) {
+            var wantedItemList = pair.Value;
+            foreach (var wantedItem in wantedItemList) {
+                wantedItem.transform.SetParent(RequestedIemsBubble.transform);
+                wantedItem.transform.localPosition =  new Vector2((newSize.x / 2) - i - iconSize.x / 2, 0);
+                i++;
             }
-            i++;
         }
     }
 
@@ -55,15 +73,19 @@ public class boatSoliciting : MonoBehaviour
 
     void StartSoliciting() {
         RequestedIemsBubble.GetComponent<SpriteRenderer>().enabled = true;
-        foreach (var wantedItemPair in wantedItems) {
-            wantedItemPair.Key.GetComponent<SpriteRenderer>().enabled = true;
+        foreach (var pair in displayedItems) {
+            foreach (var item in pair.Value) {
+                item.GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
 
     void StopSoliciting() {
         RequestedIemsBubble.GetComponent<SpriteRenderer>().enabled = false;
-        foreach (var wantedItemPair in wantedItems) {
-            wantedItemPair.Key.GetComponent<SpriteRenderer>().enabled = false;
+        foreach (var pair in displayedItems) {
+            foreach (var item in pair.Value) {
+                item.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
 
@@ -82,13 +104,20 @@ public class boatSoliciting : MonoBehaviour
             }
             if (found){
                 wantedItems[key]--;
-                if (wantedItems[key] == 0) {
-                    
-                    wantedItems.Remove(key);
-                }
+                RemoveItem(key);
                 SetWantBubble();
             }
-            Debug.Log("Here");
+        }
+    }
+
+    void RemoveItem(GameObject key) {
+        var remove = displayedItems[key].Last();
+        remove.GetComponent<SpriteRenderer>().enabled = false;
+        displayedItems[key].RemoveAt(displayedItems[key].Count - 1);
+        Destroy(remove);
+        if (wantedItems[key] == 0) {
+            displayedItems.Remove(key);
+            wantedItems.Remove(key);
         }
     }
 

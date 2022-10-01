@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 485739026}
   - component: {fileID: 485739025}
   m_Layer: 0
-  m_Name: MedBubble
+  m_Name: BubbleScale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485739024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.97, y: 0.71, z: -0.014119536}
+  m_LocalPosition: {x: 3.6585, y: 0.64, z: -0.014119536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,13 +156,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: f1bd4bc3936a16e429c37c73dbb6d7bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 8, y: 3}
+  m_DrawMode: 1
+  m_Size: {x: 5.0973773, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -443,4 +443,5 @@ MonoBehaviour:
   - {fileID: 606254104}
   - {fileID: 485739024}
   - {fileID: 32204473}
-  RequestedIemsBubble: {fileID: 32204473}
+  RequestedIemsBubble: {fileID: 485739024}
+  rb: {fileID: 0}
