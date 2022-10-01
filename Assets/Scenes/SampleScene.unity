@@ -135,6 +135,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7533902270269295123, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+      propertyPath: moveSpeedX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533902270269295123, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+      propertyPath: moveSpeedY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533902270269295123, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
       propertyPath: controls.m_Id
       value: 989f6e4c-0752-45ac-8969-21c1f284692a
       objectReference: {fileID: 0}

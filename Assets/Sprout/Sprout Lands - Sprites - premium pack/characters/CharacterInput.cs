@@ -5,47 +5,60 @@ public class CharacterInput : MonoBehaviour
 {
 
   public Animator animator;
-  public float velocityX;
-  public float velocityY;
+  public Vector2 velocity;
   public float moveX;
   public float moveY;
-  public float forceX;
-  public float forceY;
+  public float moveSpeedX = 5f;
+  public float moveSpeedY = 5f;
   public InputAction movementAction;
 
-  private Rigidbody2D rb;
+  public Rigidbody2D rb;
+  Vector2 moveDirection = Vector2.zero;
 
-  // Start is called before the first frame update
-  void Start()
-  {
-    rb = GetComponent<Rigidbody2D>();
+  void Awake() {
+    movementAction.performed += ctx => {
+        Move(ctx.ReadValue<Vector2>());
+        Animate(ctx.ReadValue<Vector2>());
+    };
+  }
+
+  void Move(Vector2 velocity) {
+    Debug.Log(velocity);
+    rb.velocity = new Vector2(velocity.x * moveSpeedX, velocity.y * moveSpeedY);
+  }
+
+  void Animate(Vector2 moveDirection) {
+    animator.SetBool("movingLeft", moveDirection.x < 0);
+    animator.SetBool("movingRight", moveDirection.x > 0);
+    animator.SetBool("movingUp", moveDirection.y > 0);
+    animator.SetBool("movingDown", moveDirection.y < 0);
   }
 
   // Update is called once per frame
-  void Update()
-  {
-    this.moveX = Input.GetAxisRaw("Horizontal");
-    this.moveY = Input.GetAxisRaw("Vertical");
+//   void Update()
+//   {
+//     // this.moveX = Input.GetAxisRaw("Horizontal");
+//     // this.moveY = Input.GetAxisRaw("Vertical");
 
-    animator.SetBool("movingLeft", moveX < 0);
-    animator.SetBool("movingRight", moveX > 0);
-    animator.SetBool("movingUp", moveY > 0);
-    animator.SetBool("movingDown", moveY < 0);
-  }
+//     // moveDirection = movementAction.ReadValue<Vector2>();
 
-  void FixedUpdate()
-  {
+//     // animator.SetBool("movingLeft", moveDirection.x < 0);
+//     // animator.SetBool("movingRight", moveDirection.x > 0);
+//     // animator.SetBool("movingUp", moveDirection.y > 0);
+//     // animator.SetBool("movingDown", moveDirection.y < 0);
+//   }
 
-    if (this.forceX != 0) rb.AddForce(new Vector2(this.forceX, 0) * Time.deltaTime);
-    if (this.forceY != 0) rb.AddForce(new Vector2(this.forceY, 0) * Time.deltaTime);
-  }
+//   private void FixedUpdate()
+//   {
+//     // rb.velocity = new Vector2(moveDirection.x * moveSpeedX, moveDirection.y * moveSpeedY);
+//   }
 
   private void OnEnable()
   {
     movementAction.Enable();
   }
 
-  private void Disable()
+  private void OnDisable()
   {
     movementAction.Disable();
   }
