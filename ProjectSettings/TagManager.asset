@@ -11,6 +11,7 @@ TagManager:
   - Ladder Trigger
   - Hill Collider
   - Boat Trigger
+  - Item
   layers:
   - Default
   - TransparentFX
