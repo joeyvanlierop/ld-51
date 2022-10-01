@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1435,9 +1435,8 @@ TextureImporter:
       Tilled Dirt_31: -526562705
       Tilled Dirt_22: -1993949401
       Tilled Dirt_56: 986795531
-      Tilled Dirt_50: 29479667
-      Tilled Dirt_3: -279611394
       Tilled Dirt_52: -409035247
+      Tilled Dirt_3: -279611394
       Tilled Dirt_59: 734713958
       Tilled Dirt_34: -479219740
       Tilled Dirt_27: 1948851823
@@ -1488,6 +1487,7 @@ TextureImporter:
       Tilled Dirt_16: -305053618
       Tilled Dirt_40: -185823679
       Tilled Dirt_29: 1250341188
+      Tilled Dirt_50: 29479667
       Tilled Dirt_15: -1824402841
       Tilled Dirt_24: 442557577
       Tilled Dirt_44: 1963433691

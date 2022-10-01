@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class CharacterFarming : MonoBehaviour
 {
+  public Tile tilledTile;
   public Tilemap groundTilemap;
   public Tilemap tilledTilemap;
 
@@ -14,12 +15,16 @@ public class CharacterFarming : MonoBehaviour
     tillAction.performed += _ => Till();
   }
 
-  void Till()
+  void OnUpdate()
   {
     var pos = groundTilemap.WorldToCell(transform.position);
-    var tile1 = groundTilemap.GetTile(pos);
-    var tile2 = tilledTilemap.GetTile(pos);
-    Debug.Log("Till: " + tile1.name);
+    var groundTile = groundTilemap.GetTile(pos);
+  }
+
+  void Till()
+  {
+    var pos = tilledTilemap.WorldToCell(transform.position);
+    tilledTilemap.SetTile(pos, tilledTile);
   }
 
   private void OnEnable()
