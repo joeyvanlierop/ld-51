@@ -10,6 +10,7 @@ TagManager:
   - Up Hill Collider
   - Ladder Trigger
   - Hill Collider
+  - Boat Trigger
   layers:
   - Default
   - TransparentFX
