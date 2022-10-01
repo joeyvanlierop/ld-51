@@ -11,6 +11,7 @@ public class CharacterSortingLayerHandler : MonoBehaviour
     Collider2D charCollider;
 
     bool isUpHill = false;
+    bool isOnLadder = false;
     SpriteRenderer sr;
     void Awake() {
         // foreach (SpriteRenderer sR in gameObject.GetComponentsInChildren<SpriteRenderer>())
@@ -79,9 +80,20 @@ public class CharacterSortingLayerHandler : MonoBehaviour
         if (collider.CompareTag("Down Hill Trigger")) {
             isUpHill = false;
         }
+
+        if (collider.CompareTag("Ladder Trigger")) {
+            isOnLadder = true;
+        }
         UpdateSortingAndCollisionLayers();
         
     }
+
+    void OnTriggerExit2D(Collider2D collider) {
+        if (collider.CompareTag("Ladder Trigger")) {
+            isOnLadder = false;
+        }
+
+    } 
 
 }
 
