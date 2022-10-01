@@ -41,10 +41,11 @@ public class CharacterFarming : MonoBehaviour
   {
     var target = GetTarget();
     var heldPlant = characterInventory.heldItem?.GetComponent<Plant>();
-    var isTilled = !!tilledTilemap.GetTile(target);
+    var isTilled = tilledTilemap.HasTile(target);
+    var isPlanted = plantManager.HasPlant(target);
     if (heldPlant)
       Plant(heldPlant, target);
-    else if (!isTilled)
+    else if (!isTilled && !isPlanted)
       Till(target);
     else
       Harvest(target);
@@ -67,6 +68,7 @@ public class CharacterFarming : MonoBehaviour
     {
       characterInventory.heldItem = null;
       plant.gameObject.SetActive(false);
+      tilledTilemap.SetTile(target, null);
     }
   }
 
@@ -101,7 +103,8 @@ public class CharacterFarming : MonoBehaviour
     // Debug.Log(tile_pos);
     // Debug.Log(Vector2.Distance(transform.position, tile_pos));
     RaycastHit2D hit = Physics2D.Raycast(transform.position, adjustedPos, Vector2.Distance(transform.position, adjustedPos));
-    if (hit.collider != null) {
+    if (hit.collider != null)
+    {
       Debug.Log(hit.collider.tag);
     }
     return pos;

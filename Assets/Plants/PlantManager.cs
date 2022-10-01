@@ -17,7 +17,7 @@ public class PlantManager : MonoBehaviour
 
   public bool Plant(Plant plant, Vector3Int pos)
   {
-    if (plants.ContainsKey(pos))
+    if (HasPlant(pos))
       return false;
     plants.Add(pos, plant);
     StartCoroutine(StartGrowing(plant, pos));
@@ -46,5 +46,10 @@ public class PlantManager : MonoBehaviour
     plantTilemap.SetTile(pos, null);
     plant.Harvest(pos);
     plants.Remove(pos);
+  }
+
+  internal bool HasPlant(Vector3Int pos)
+  {
+    return plants.ContainsKey(pos);
   }
 }
