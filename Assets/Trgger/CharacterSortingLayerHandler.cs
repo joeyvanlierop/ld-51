@@ -6,7 +6,7 @@ public class CharacterSortingLayerHandler : MonoBehaviour
 {
     // List<SpriteRenderer> defualtLayerSpriteRenderers = new List<SpriteRenderer>();
     List<Collider2D> upHillColliders = new List<Collider2D>();
-    List<Collider2D> downHillColliders = new List<Collider2D>();
+    List<Collider2D> hillRidgeColliders = new List<Collider2D>();
 
     Collider2D charCollider;
 
@@ -24,8 +24,8 @@ public class CharacterSortingLayerHandler : MonoBehaviour
         foreach (GameObject upHillCollider in GameObject.FindGameObjectsWithTag("Up Hill Collider")) {
             upHillColliders.Add(upHillCollider.GetComponent<Collider2D>());
         }
-        foreach (GameObject downHillCollider in GameObject.FindGameObjectsWithTag("Untagged")) {
-            downHillColliders.Add(downHillCollider.GetComponent<Collider2D>());
+        foreach (GameObject hillRidgeCollider in GameObject.FindGameObjectsWithTag("Hill Collider")) {
+            hillRidgeColliders.Add(hillRidgeCollider.GetComponent<Collider2D>());
         }
     }
     // Start is called before the first frame update
@@ -56,8 +56,8 @@ public class CharacterSortingLayerHandler : MonoBehaviour
             Physics2D.IgnoreCollision(charCollider, collider, !isUpHill);
         }
 
-        foreach (Collider2D collider in downHillColliders) {
-            Physics2D.IgnoreCollision(charCollider, collider, isUpHill);
+        foreach (Collider2D collider in hillRidgeColliders) {
+            Physics2D.IgnoreCollision(charCollider, collider, isOnLadder);
         }
     }
 
@@ -75,24 +75,28 @@ public class CharacterSortingLayerHandler : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.CompareTag("Up Hill Trigger")) {
             isUpHill = true;
+            UpdateSortingAndCollisionLayers();
         }
 
         if (collider.CompareTag("Down Hill Trigger")) {
             isUpHill = false;
+            UpdateSortingAndCollisionLayers();
         }
 
         if (collider.CompareTag("Ladder Trigger")) {
             isOnLadder = true;
+            UpdateSortingAndCollisionLayers();
         }
-        UpdateSortingAndCollisionLayers();
+        
         
     }
 
     void OnTriggerExit2D(Collider2D collider) {
         if (collider.CompareTag("Ladder Trigger")) {
             isOnLadder = false;
+            UpdateSortingAndCollisionLayers();
         }
-
+        
     } 
 
 }

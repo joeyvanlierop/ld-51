@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 290979739}
   m_Layer: 0
   m_Name: Hills
-  m_TagString: Untagged
+  m_TagString: Hill Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1263,7 +1263,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -1, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -1283,7 +1283,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -2636,19 +2636,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 332322728760416816, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.7061589
+      value: 2.6709788
       objectReference: {fileID: 0}
     - target: {fileID: 332322728760416816, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0123075
+      value: 0.6148566
       objectReference: {fileID: 0}
     - target: {fileID: 332322728760416816, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5313
+      value: -0.5138
       objectReference: {fileID: 0}
     - target: {fileID: 332322728760416816, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5006
+      value: 3.5066
       objectReference: {fileID: 0}
     - target: {fileID: 332322728760416816, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2689,6 +2689,10 @@ PrefabInstance:
     - target: {fileID: 567654295155500985, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
       propertyPath: m_TagString
       value: Ladder Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114747368157416792, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
@@ -20315,6 +20319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownRampTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 6114747368157416792, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
 --- !u!1001 &8765616746983236023
@@ -20370,6 +20378,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6529652435952571328, guid: 9b2127c3f7a9f124992334bafc8e538c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536852644129710094, guid: 9b2127c3f7a9f124992334bafc8e538c, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

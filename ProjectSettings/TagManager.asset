@@ -9,6 +9,7 @@ TagManager:
   - Down Hill Trigger
   - Up Hill Collider
   - Ladder Trigger
+  - Hill Collider
   layers:
   - Default
   - TransparentFX
