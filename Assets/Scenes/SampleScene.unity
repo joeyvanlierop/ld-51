@@ -436,6 +436,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+--- !u!1 &87399679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7533902270269295129, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+  m_PrefabInstance: {fileID: 87399678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &87399680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87399679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaed2d2f4150f9f4aa1b3a43d5ca317c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tillAction:
+    m_Name: Till
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4a4f42be-7c71-429a-9422-ea5ff03ddaba
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c306b9da-ab15-42fd-8501-ab6be7205b47
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Till
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &290979735
 GameObject:
   m_ObjectHideFlags: 0
