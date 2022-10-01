@@ -19,10 +19,11 @@ public class Plant : MonoBehaviour
 
   public void Harvest(Vector3 pos)
   {
-    Burst(harvestItem, pos);
+    var adjustedPos = new Vector3(pos.x + 0.5f, pos.y + 0.5f, pos.z);
+    Burst(harvestItem, adjustedPos);
     for (int i = 0; i < Random.Range(1, maxSeedsDropped); i++)
     {
-      Burst(harvestSeed, pos);
+      Burst(harvestSeed, adjustedPos);
     }
   }
 

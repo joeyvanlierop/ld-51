@@ -20,6 +20,7 @@ public class PlantManager : MonoBehaviour
     if (HasPlant(pos))
       return false;
     plants.Add(pos, plant);
+    plant.transform.SetParent(transform);
     StartCoroutine(StartGrowing(plant, pos));
     return true;
   }
