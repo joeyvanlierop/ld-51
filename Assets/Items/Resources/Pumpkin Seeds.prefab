@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2501694547114796130}
   - component: {fileID: 2501694547114796131}
   m_Layer: 5
-  m_Name: Carrot Seeds
+  m_Name: Pumpkin Seeds
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -101741624, guid: 56f83d7a35e4c2043b3feb52dfadfd21, type: 3}
+  m_Sprite: {fileID: -758091584, guid: 56f83d7a35e4c2043b3feb52dfadfd21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,12 +161,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 0
   stages:
-  - {fileID: 11400000, guid: 628a8cb0c3c49be4d944e4a376e62c53, type: 2}
-  - {fileID: 11400000, guid: 0dc798ac3585e0f4ca39c51e43e83400, type: 2}
-  - {fileID: 11400000, guid: 5c1f2f719d8130b45963e208750d7ab8, type: 2}
-  - {fileID: 11400000, guid: 0c26e527a265b764ebae5f80f2057cf1, type: 2}
-  harvestItem: {fileID: 3222908055170863070, guid: c1471ee19405b394b8fd4c2759676f3a, type: 3}
-  harvestSeedName: Carrot Seeds
-  minGrowTime: 1
-  maxGrowTime: 5
-  maxSeedsDropped: 2
+  - {fileID: 11400000, guid: 2ad21218d39f3d0448142fcf812a73ee, type: 2}
+  - {fileID: 11400000, guid: 490cc543fdc0b7041b651c69ba230597, type: 2}
+  - {fileID: 11400000, guid: 999dc585ddc32304c89b2f6c2463e81c, type: 2}
+  - {fileID: 11400000, guid: 5d85c264608916249871d19ce51266e9, type: 2}
+  harvestItem: {fileID: 3222908055170863070, guid: ef2e85bd93975174a8f67ef60a072404, type: 3}
+  harvestSeedName: Pumpkin Seeds
+  minGrowTime: 3
+  maxGrowTime: 6
+  maxSeedsDropped: 3

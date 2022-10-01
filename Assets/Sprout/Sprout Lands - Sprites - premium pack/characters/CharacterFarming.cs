@@ -47,7 +47,7 @@ public class CharacterFarming : MonoBehaviour
       Plant(heldPlant, target);
     else if (!isTilled && !isPlanted)
       Till(target);
-    else
+    else if (isPlanted)
       Harvest(target);
   }
 

@@ -8,20 +8,20 @@ public class Plant : MonoBehaviour
   public GameObject harvestItem;
   public string harvestSeedName;
   private GameObject harvestSeed;
+  public int minGrowTime = 1;
+  public int maxGrowTime = 5;
   public float maxSeedsDropped = 3;
 
   void Awake()
   {
     harvestSeed = (GameObject)Resources.Load(harvestSeedName);
-    Debug.Log(harvestSeed);
   }
 
   public void Harvest(Vector3 pos)
   {
     Burst(harvestItem, pos);
-    for (int i = 0; i < Random.Range(1, maxSeedsDropped + 1); i++)
+    for (int i = 0; i < Random.Range(1, maxSeedsDropped); i++)
     {
-      Debug.Log(i);
       Burst(harvestSeed, pos);
     }
   }

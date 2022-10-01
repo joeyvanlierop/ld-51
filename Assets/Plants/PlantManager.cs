@@ -29,7 +29,8 @@ public class PlantManager : MonoBehaviour
     plantTilemap.SetTile(pos, plant.stages[0]);
     while (plant.currentStage < plant.stages.Length - 1)
     {
-      var growTime = Random.Range(1, 5);
+      var growTime = Random.Range(plant.minGrowTime, plant.maxGrowTime);
+      Debug.Log(plant.name + ": " + growTime);
       yield return new WaitForSeconds(growTime);
       plant.currentStage += 1;
       plantTilemap.SetTile(pos, plant.stages[plant.currentStage]);
