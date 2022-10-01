@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
   public float moveSpeedY = 5f;
   public InputAction movementAction;
   public Direction direction = Direction.DOWN;
-  private bool idle = true;
+  private bool canMove = true;
 
   Rigidbody2D rb;
   Vector2 moveDirection = Vector2.zero;
@@ -33,57 +33,46 @@ public class CharacterMovement : MonoBehaviour
   //Update is called once per frame
   void Update()
   {
+    if (!canMove)
+    {
+      moveDirection = Vector2.zero;
+      return;
+    }
 
     moveDirection = movementAction.ReadValue<Vector2>();
-    idle = false;
+    var moving = true;
 
     if (moveDirection.x < 0)
+    {
       direction = Direction.LEFT;
+      animator.SetFloat("X", -1);
+      animator.SetFloat("Y", 0);
+    }
     else if (moveDirection.x > 0)
+    {
       direction = Direction.RIGHT;
+      animator.SetFloat("X", 1);
+      animator.SetFloat("Y", 0);
+    }
     else if (moveDirection.y < 0)
+    {
       direction = Direction.DOWN;
+      animator.SetFloat("Y", -1);
+      animator.SetFloat("X", 0);
+    }
     else if (moveDirection.y > 0)
-      direction = Direction.UP;
-    else
-      idle = true;
+    {
 
-    if (idle)
-    {
-      switch (direction)
-      {
-        case Direction.UP:
-          animator.Play("idleUp");
-          break;
-        case Direction.DOWN:
-          animator.Play("idleDown");
-          break;
-        case Direction.LEFT:
-          animator.Play("idleLeft");
-          break;
-        case Direction.RIGHT:
-          animator.Play("idleRight");
-          break;
-      }
+      direction = Direction.UP;
+      animator.SetFloat("Y", 1);
+      animator.SetFloat("X", 0);
     }
     else
     {
-      switch (direction)
-      {
-        case Direction.UP:
-          animator.Play("moveUp");
-          break;
-        case Direction.DOWN:
-          animator.Play("moveDown");
-          break;
-        case Direction.LEFT:
-          animator.Play("moveLeft");
-          break;
-        case Direction.RIGHT:
-          animator.Play("moveRight");
-          break;
-      }
+      moving = false;
     }
+
+    animator.SetBool("moving", moving);
 
     UpdateSortingLayer();
   }
@@ -91,6 +80,11 @@ public class CharacterMovement : MonoBehaviour
   private void FixedUpdate()
   {
     rb.velocity = new Vector2(moveDirection.x * moveSpeedX, moveDirection.y * moveSpeedY);
+  }
+
+  void SetCanMove(string canMove)
+  {
+    this.canMove = canMove == "true";
   }
 
   void UpdateSortingLayer()

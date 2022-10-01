@@ -16,6 +16,7 @@ public class CharacterFarming : MonoBehaviour
   private CharacterMovement characterMovement;
   private CharacterInventory characterInventory;
   public PlantManager plantManager;
+  private Animator animator;
 
   public InputAction action;
 
@@ -27,6 +28,7 @@ public class CharacterFarming : MonoBehaviour
     action.performed += _ => PerformAction();
     characterMovement = gameObject.GetComponent<CharacterMovement>();
     characterInventory = gameObject.GetComponent<CharacterInventory>();
+    animator = gameObject.GetComponent<Animator>();
   }
 
   void Update()
@@ -75,6 +77,8 @@ public class CharacterFarming : MonoBehaviour
   {
     if (!IsValidTarget(target))
       return;
+
+    animator.SetTrigger("tilling");
     tilledTilemap.SetTile(target, tilledTile);
   }
 
