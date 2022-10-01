@@ -39,23 +39,20 @@ public class CharacterInput : MonoBehaviour
   //     animator.SetBool("movingDown", moveDirection.y < 0);
   //   }
 
-  // Update is called once per frame
-  //   void Update()
-  //   {
-  //     // this.moveX = Input.GetAxisRaw("Horizontal");
-  //     // this.moveY = Input.GetAxisRaw("Vertical");
+  //Update is called once per frame
+  void Update()
+  {
 
-  //     // moveDirection = movementAction.ReadValue<Vector2>();
+    moveDirection = movementAction.ReadValue<Vector2>();
 
-  //     // animator.SetBool("movingLeft", moveDirection.x < 0);
-  //     // animator.SetBool("movingRight", moveDirection.x > 0);
-  //     // animator.SetBool("movingUp", moveDirection.y > 0);
-  //     // animator.SetBool("movingDown", moveDirection.y < 0);
-  //   }
+    animator.SetBool("movingLeft", moveDirection.x < 0);
+    animator.SetBool("movingRight", moveDirection.x > 0);
+    animator.SetBool("movingUp", moveDirection.y > 0);
+    animator.SetBool("movingDown", moveDirection.y < 0);
+  }
 
   private void FixedUpdate()
   {
-    moveDirection = movementAction.ReadValue<Vector2>();
     Debug.Log(moveDirection);
 
     rb.velocity = new Vector2(moveDirection.x * moveSpeedX, moveDirection.y * moveSpeedY);
