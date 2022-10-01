@@ -11,17 +11,19 @@ public class CharacterFarming : MonoBehaviour
   public Tilemap tilledTilemap;
   public Tilemap tilledPreviewTilemap;
   private CharacterMovement characterMovement;
+  private CharacterInventory characterInventory;
+  public PlantManager plantManager;
 
   public InputAction action;
 
   private Vector3Int previousPos;
   private const float REACH = 0.65f;
-  private bool holdingItem = false;
 
   void Awake()
   {
     action.performed += _ => PerformAction();
     characterMovement = gameObject.GetComponent<CharacterMovement>();
+    characterInventory = gameObject.GetComponent<CharacterInventory>();
   }
 
   void Update()
@@ -37,10 +39,11 @@ public class CharacterFarming : MonoBehaviour
 
   void PerformAction()
   {
-    if (!holdingItem)
+    var heldPlant = characterInventory.heldItem?.GetComponent<Plant>();
+    if (!heldPlant)
       Till();
     else
-      Plant();
+      Plant(heldPlant);
   }
 
   void Till()
@@ -52,13 +55,15 @@ public class CharacterFarming : MonoBehaviour
     tilledTilemap.SetTile(target, tilledTile);
   }
 
-  void Plant()
+  void Plant(Plant plant)
   {
     var target = GetTarget();
     var tile = tilledTilemap.GetTile(target);
     if (!tile)
       return;
-    // tilledTilemap.SetTile(target, tilledTile);
+    plantManager.PlantPlant(plant, target);
+    characterInventory.heldItem = null;
+    plant.gameObject.SetActive(false);
   }
 
   Vector3Int GetTarget()

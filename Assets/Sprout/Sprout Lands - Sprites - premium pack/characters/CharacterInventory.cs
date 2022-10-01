@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CharacterInventory : MonoBehaviour
 {
-  public GameObject heldItem;
+  public Item heldItem;
   public GameObject heldItemBubble;
   public InputAction inventoryAction;
   public float pickupRadius = 0.5f;
@@ -35,7 +35,7 @@ public class CharacterInventory : MonoBehaviour
     {
       if (collider.tag == "Item")
       {
-        heldItem = collider.gameObject;
+        heldItem = collider.GetComponent<Item>();
         heldItem.transform.SetParent(heldItemBubble.transform);
         oldSortingOrder = heldItem.GetComponent<SpriteRenderer>().sortingOrder;
         heldItem.GetComponent<SpriteRenderer>().sortingOrder = heldItemBubble.GetComponent<SpriteRenderer>().sortingOrder + 1;
@@ -48,7 +48,7 @@ public class CharacterInventory : MonoBehaviour
 
   private void ThrowItem()
   {
-    heldItem.transform.SetParent(null);
+    heldItem.transform.SetParent(transform);
     heldItem.GetComponent<SpriteRenderer>().sortingOrder = oldSortingOrder;
     heldItem.GetComponent<BoxCollider2D>().enabled = true;
     heldItem.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -57,18 +57,23 @@ public class CharacterInventory : MonoBehaviour
     {
       case Direction.UP:
         velocity = new Vector2(0, throwSpeed);
+        heldItem.transform.localPosition = new Vector2(0, 1);
         break;
       case Direction.DOWN:
         velocity = new Vector2(0, -throwSpeed);
+        heldItem.transform.localPosition = new Vector2(0, -1);
         break;
       case Direction.LEFT:
         velocity = new Vector2(-throwSpeed, 0);
+        heldItem.transform.localPosition = new Vector2(-1, 0);
         break;
       case Direction.RIGHT:
         velocity = new Vector2(throwSpeed, 0);
+        heldItem.transform.localPosition = new Vector2(1, 0);
         break;
     }
-    heldItem.GetComponent<Item>().Throw(velocity);
+    heldItem.transform.SetParent(null);
+    heldItem.Throw(velocity);
     heldItem = null;
   }
 
