@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoatManager : MonoBehaviour
 {
     List<GameObject> Boats = new List<GameObject>();
+    public List<GameObject> PossibleItems = new List<GameObject>();
     public GameObject BoatPrefab;
     float betweenBoatTime = 10f;
     float startTime = 0;
@@ -12,7 +13,9 @@ public class BoatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (var go in GameObject.FindGameObjectsWithTag("Wanted Item")) {
+            PossibleItems.Add(go);
+        }
     }
 
     // Update is called once per frame
@@ -25,7 +28,10 @@ public class BoatManager : MonoBehaviour
         if (startTime > betweenBoatTime) {
             startTime = 0;
             GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
-            newBoat.transform.SetPositionAndRotation(SpawnLocation, Quaternion.identity);
+            foreach (GameObject PossibleItem in PossibleItems) {
+                newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), Random.Range(1, 9));
+            }
+            Boats.Add(newBoat);
         } else {
             startTime += Time.deltaTime;
         }

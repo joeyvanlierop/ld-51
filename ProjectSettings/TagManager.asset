@@ -12,6 +12,7 @@ TagManager:
   - Hill Collider
   - Boat Trigger
   - Item
+  - Wanted Item
   layers:
   - Default
   - TransparentFX
