@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7236cd07bed3eaa44b09808c2e8f4d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PossibleItems:
-  - {fileID: 5658646216285111308, guid: 46c07dc07441942479d194c69adb8012, type: 3}
+  PossibleItems: []
   BoatPrefab: {fileID: 2355059698630714360, guid: 28b9078d426baf14fa8e83840672c853, type: 3}
   SpawnLocation: {x: 13.29, y: -2.36, z: 0.02834536}

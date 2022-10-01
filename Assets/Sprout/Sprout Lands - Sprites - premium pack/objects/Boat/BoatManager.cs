@@ -8,7 +8,7 @@ public class BoatManager : MonoBehaviour
     public List<GameObject> PossibleItems = new List<GameObject>();
     public GameObject BoatPrefab;
     float betweenBoatTime = 10f;
-    float startTime = 0;
+    float startTime = 10f;
     public Vector3 SpawnLocation = new Vector3(13.29f, -2.36f, 0.02834536f);
     // Start is called before the first frame update
     void Start()
