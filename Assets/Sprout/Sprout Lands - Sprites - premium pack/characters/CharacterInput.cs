@@ -30,11 +30,18 @@ public class CharacterInput : MonoBehaviour
     animator.SetBool("movingRight", moveDirection.x > 0);
     animator.SetBool("movingUp", moveDirection.y > 0);
     animator.SetBool("movingDown", moveDirection.y < 0);
+
+    UpdateSortingLayer();
   }
 
   private void FixedUpdate()
   {
     rb.velocity = new Vector2(moveDirection.x * moveSpeedX, moveDirection.y * moveSpeedY);
+  }
+
+  void UpdateSortingLayer()
+  {
+
   }
 
   private void OnEnable()
