@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-  // Start is called before the first frame update
-  void Start()
-  {
+  public Vector3 velocity;
+  public float slowdownCoefficient = 0.3f;
+  private Rigidbody2D rb;
 
+  void Awake()
+  {
+    rb = gameObject.GetComponent<Rigidbody2D>();
   }
 
-  // Update is called once per frame
-  void Update()
+  public void Throw(Vector2 force)
   {
-
+    rb.AddForce(force, ForceMode2D.Impulse);
   }
 }
