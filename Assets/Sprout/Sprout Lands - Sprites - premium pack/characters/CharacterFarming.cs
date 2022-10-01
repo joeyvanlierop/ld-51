@@ -24,6 +24,9 @@ public class CharacterFarming : MonoBehaviour
   void Till()
   {
     var pos = tilledTilemap.WorldToCell(transform.position);
+    var groundTile = groundTilemap.GetTile(pos);
+    if (!groundTile)
+      return;
     tilledTilemap.SetTile(pos, tilledTile);
   }
 
