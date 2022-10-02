@@ -1,15 +1,10 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class Plant : MonoBehaviour
+public class Plant : IPlant
 {
-  public int currentStage = 0;
-  public Tile[] stages;
   public GameObject harvestItem;
   public string harvestSeedName;
   private GameObject harvestSeed;
-  public int minGrowTime = 1;
-  public int maxGrowTime = 5;
   public float maxHarvestDropped = 1;
   public float maxSeedsDropped = 3;
 
@@ -18,7 +13,7 @@ public class Plant : MonoBehaviour
     harvestSeed = (GameObject)Resources.Load(harvestSeedName);
   }
 
-  public void Harvest(Vector3 pos)
+  public override void Harvest(Vector3 pos)
   {
     var adjustedPos = new Vector3(pos.x + 0.5f, pos.y + 0.5f, pos.z);
     for (int i = 0; i < Random.Range(1, maxHarvestDropped); i++)
@@ -29,14 +24,5 @@ public class Plant : MonoBehaviour
     {
       Burst(harvestSeed, adjustedPos);
     }
-  }
-
-  void Burst(GameObject obj, Vector3 pos)
-  {
-    var newObj = Instantiate(obj, pos, Quaternion.identity);
-    var rb = newObj.GetComponent<Rigidbody2D>();
-    var force = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-    force *= 10;
-    rb.AddForce(force, ForceMode2D.Impulse);
   }
 }

@@ -49,5 +49,6 @@ MonoBehaviour:
   - {fileID: 5658646216285111308, guid: 46c07dc07441942479d194c69adb8012, type: 3}
   - {fileID: 5528478166303001501, guid: 7aa0c5206725c2042a46cd2169bd5b8e, type: 3}
   - {fileID: 5658646216285111308, guid: 14ee2ae5d884f124cab530a5e9bad556, type: 3}
+  - {fileID: 5658646216285111308, guid: a65db7b26d39dcb43aaba039bf552f26, type: 3}
   BoatPrefab: {fileID: 2355059698630714360, guid: 28b9078d426baf14fa8e83840672c853, type: 3}
   SpawnLocation: {x: 13.29, y: -2.36, z: 0.02834536}
