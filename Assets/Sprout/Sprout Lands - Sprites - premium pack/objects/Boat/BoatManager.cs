@@ -114,8 +114,6 @@ public class BoatManager : MonoBehaviour
 
     void GetChoice(GameObject choice) {
         var choiceIndex = 0;
-        Debug.Log(choice.name);
-        // int choiceIndex = CurrentPossibleChoices.Keys.ToList().IndexOf(choice);
         bool found = false;
         for (int i = 0; i < ChoicesPrefab.Count; i++) {
             if (choice.name.Split()[0] == ChoicesPrefab[i].name.Split()[0]) {
