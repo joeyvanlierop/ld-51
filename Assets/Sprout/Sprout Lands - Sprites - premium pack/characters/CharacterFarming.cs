@@ -112,8 +112,6 @@ public class CharacterFarming : MonoBehaviour
       return;
 
     animator.SetTrigger("tilling");
-    animator.SetTrigger("tilling");
-    animator.SetTrigger("tilling");
   }
 
   void TillCallback()
