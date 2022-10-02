@@ -24,7 +24,6 @@ public class boatMovement : MonoBehaviour
       boatStopName = "BoatTriggerClose";
     else
       boatStopName = "BoatTriggerFar";
-    Debug.Log(boatStopName);
   }
 
 
