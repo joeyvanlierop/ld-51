@@ -79,7 +79,6 @@ public class CharacterFarming : MonoBehaviour
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
 
-    Debug.Log("TEST1");
     if (!heldItem)
     {
       var colliders = Physics2D.OverlapCircleAll(transform.position, REACH);
@@ -124,8 +123,6 @@ public class CharacterFarming : MonoBehaviour
   bool Plant(IPlant plant, Vector3Int target)
   {
     var hillTile = hillTilemap.GetTile(target);
-    Debug.Log(hillTile);
-    Debug.Log(plant.GetComponent<Bush>());
     if (plant.GetComponent<Bush>() && !hillTile)
       return false;
 
