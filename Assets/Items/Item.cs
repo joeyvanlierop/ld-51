@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
   private Rigidbody2D rb;
+  public Boolean consumable = false;
 
   void Awake()
   {
@@ -12,5 +14,10 @@ public class Item : MonoBehaviour
   public void Throw(Vector2 force)
   {
     rb.AddForce(force, ForceMode2D.Impulse);
+  }
+
+  public virtual void Consume()
+  {
+    throw new NotImplementedException();
   }
 }
