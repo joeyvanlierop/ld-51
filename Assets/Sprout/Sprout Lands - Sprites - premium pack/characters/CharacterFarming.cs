@@ -94,27 +94,17 @@ public class CharacterFarming : MonoBehaviour
       }
     }
 
-    Debug.Log("TEST2");
     if (heldItem && heldItem.consumable)
     {
       heldItem.Consume(target);
       characterInventory.heldItem = null;
     }
     else if (heldPlant && isTilled && Plant(heldPlant, target))
-    {
-      Debug.Log("TEST3");
       return;
-    }
     else if (!isTilled && !isPlanted)
-    {
       Till(target);
-      Debug.Log("TEST4");
-    }
     else if (isPlanted)
-    {
       Harvest(target);
-      Debug.Log("TEST5");
-    }
   }
 
   void Till(Vector3Int target)
