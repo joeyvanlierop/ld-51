@@ -82,12 +82,12 @@ public class boatDelivery : MonoBehaviour
         
 
         var remove = choices[1];
-        Debug.Log("Callback before");
         ChoiceCallback(remove);
         choices.RemoveAt(1);
         Destroy(remove);
 
         chose = true;
+        HideItems();
     }
 
     private void ChooseRight(InputAction.CallbackContext context) {
@@ -105,6 +105,7 @@ public class boatDelivery : MonoBehaviour
         Destroy(remove);
 
         chose = true;
+        HideItems();
     }
 
 
@@ -118,6 +119,16 @@ public class boatDelivery : MonoBehaviour
 
 
         return true;
+    }
+
+    void HideItems() {
+        for (int i = 0; i < choices.Count; i++) {
+            choices[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        for (int i = 0; i < RequestedIemsBubbles.Count; i++) {
+            RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     bool AbleToChoose() {
@@ -164,13 +175,7 @@ public class boatDelivery : MonoBehaviour
     }
 
     void StopDelivering() {
-        for (int i = 0; i < choices.Count; i++) {
-            choices[i].GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        for (int i = 0; i < RequestedIemsBubbles.Count; i++) {
-            RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = false;
-        }
+        HideItems();
         Destroy(timerRef);
     }
 

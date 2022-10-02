@@ -119,8 +119,6 @@ public class BoatManager : MonoBehaviour
     }
 
     void EndSolicitingCallback(boatSoliciting.SolicitingState state) {
-        Debug.Log("Here");
-        Debug.Log(state);
         if (state != boatSoliciting.SolicitingState.SUCCESS) {
             if (GameStateManager.GetComponent<GameStateManager>().gameState == GameState.PLAYING) {
                 GameStateManager.GetComponent<GameStateManager>().EndGame();
@@ -178,7 +176,6 @@ public class BoatManager : MonoBehaviour
             if (!boatTimerStarted) {
                 TimerRef = Instantiate(BetweenBoatTimer, new Vector2(8, -2.5f), Quaternion.identity);
                 boatTimerStarted = true;
-                Debug.Log(TimerRef);
             }
             startTime += Time.deltaTime;
         }
