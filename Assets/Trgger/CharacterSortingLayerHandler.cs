@@ -8,9 +8,11 @@ public class CharacterSortingLayerHandler : MonoBehaviour
   List<Collider2D> upHillColliders = new List<Collider2D>();
   List<Collider2D> hillRidgeColliders = new List<Collider2D>();
 
+  List<Collider2D> groundColliders = new List<Collider2D>();
+
   Collider2D charCollider;
 
-  bool isUpHill = false;
+  bool isUpHill = true;
   bool isOnLadder = false;
   SpriteRenderer sr;
   public Tilemap plantTilemap;
@@ -36,6 +38,11 @@ public class CharacterSortingLayerHandler : MonoBehaviour
     foreach (GameObject hillRidgeCollider in GameObject.FindGameObjectsWithTag("Hill Collider"))
     {
       hillRidgeColliders.Add(hillRidgeCollider.GetComponent<Collider2D>());
+    }
+
+    foreach (GameObject groundCollider in GameObject.FindGameObjectsWithTag("Ground Collider"))
+    {
+      groundColliders.Add(groundCollider.GetComponent<Collider2D>());
     }
   }
   // Start is called before the first frame update
@@ -73,6 +80,10 @@ public class CharacterSortingLayerHandler : MonoBehaviour
     foreach (Collider2D collider in hillRidgeColliders)
     {
       Physics2D.IgnoreCollision(charCollider, collider, isOnLadder);
+    }
+
+    foreach (Collider2D collider in groundColliders) {
+        Physics2D.IgnoreCollision(charCollider, collider, isOnLadder);
     }
   }
 
