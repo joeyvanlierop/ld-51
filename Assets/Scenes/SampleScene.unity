@@ -2720,11 +2720,11 @@ PrefabInstance:
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesPrefab.Array.data[2]
       value: 
-      objectReference: {fileID: 5658646216285111308, guid: bf9d3ac5a9fc2144787d5187854743f7, type: 3}
+      objectReference: {fileID: 5658646216285111308, guid: 16684c6221146ee408908de6f19e0ebd, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesPrefab.Array.data[3]
       value: 
-      objectReference: {fileID: 5658646216285111308, guid: 16684c6221146ee408908de6f19e0ebd, type: 3}
+      objectReference: {fileID: 5658646216285111308, guid: bf9d3ac5a9fc2144787d5187854743f7, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesPrefab.Array.data[4]
       value: 
