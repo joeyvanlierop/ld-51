@@ -24354,6 +24354,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2501694547114796133, guid: e1d66e0b49d7efb4ca8ea31815e5a2ea, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesPrefab.Array.data[5]
+      value: 
+      objectReference: {fileID: 2501694547114796133, guid: 6fa12ff49aa4e3f4c9e517b3aab8c383, type: 3}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesItemsPrefab.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -24361,6 +24365,10 @@ PrefabInstance:
       propertyPath: ChoicesItemsPrefab.Array.data[4]
       value: 
       objectReference: {fileID: 2501694547114796135, guid: e1d66e0b49d7efb4ca8ea31815e5a2ea, type: 3}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesItemsPrefab.Array.data[5]
+      value: 
+      objectReference: {fileID: 3392736759909090621, guid: 6fa12ff49aa4e3f4c9e517b3aab8c383, type: 3}
     - target: {fileID: 4497326770120265594, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: m_Name
       value: BoatManager
