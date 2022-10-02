@@ -102,7 +102,7 @@ public class BoatManager : MonoBehaviour
         GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
         var wantedItems = newBoat.GetComponent<boatSoliciting>().wantedItems;
         for (int i = 0; i < rounds; i++) {
-            var randIndex = Random.Range(0, CurrentPossibleSolicitingItems.Count - 1);
+            var randIndex = Random.Range(0, CurrentPossibleSolicitingItems.Count);
             if (wantedItems.ContainsKey(CurrentPossibleSolicitingItems[randIndex])) {
                 wantedItems[CurrentPossibleSolicitingItems[randIndex]] += 1;
             } else {
@@ -119,6 +119,8 @@ public class BoatManager : MonoBehaviour
     }
 
     void EndSolicitingCallback(boatSoliciting.SolicitingState state) {
+        Debug.Log("Here");
+        Debug.Log(state);
         if (state != boatSoliciting.SolicitingState.SUCCESS) {
             if (GameStateManager.GetComponent<GameStateManager>().gameState == GameState.PLAYING) {
                 GameStateManager.GetComponent<GameStateManager>().EndGame();

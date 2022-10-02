@@ -15,9 +15,13 @@ public class boatSoliciting : MonoBehaviour
     public GameObject RequestedIemsBubble;
     bool soliciting = false;
 
+
     public Rigidbody2D rb;
 
     public GameObject Timer;
+
+    float timeout = 2f;
+    float time = 0;
 
     GameObject timerRef;
     public enum SolicitingState {
@@ -71,6 +75,9 @@ public class boatSoliciting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (time < timeout) {
+            time += Time.deltaTime;
+        }
         if (!animator.GetBool("isCruisin")) {
             if (!soliciting) {
                 soliciting = true;
@@ -105,8 +112,9 @@ public class boatSoliciting : MonoBehaviour
             }
         }
         Destroy(timerRef);
-
-
+        if (time < timeout) {
+            return;
+        }
         if (displayedItems.Count == 0) {
             EndSolicitingCallback(SolicitingState.SUCCESS);
         } else {
