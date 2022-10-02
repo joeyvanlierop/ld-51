@@ -66,7 +66,7 @@ public class CharacterFarming : MonoBehaviour
   void PerformAction()
   {
     var target = GetTarget();
-    var heldPlant = characterInventory.heldItem?.GetComponent<Plant>();
+    var heldPlant = characterInventory.heldItem?.GetComponent<IPlant>();
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
     if (heldPlant && isTilled)
@@ -93,7 +93,7 @@ public class CharacterFarming : MonoBehaviour
     tilledTilemap.SetTile(target, tilledTile);
   }
 
-  void Plant(Plant plant, Vector3Int target)
+  void Plant(IPlant plant, Vector3Int target)
   {
     if (plantManager.Plant(plant, target))
     {
