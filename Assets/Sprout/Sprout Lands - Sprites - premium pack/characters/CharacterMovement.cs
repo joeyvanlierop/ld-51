@@ -23,7 +23,8 @@ public class CharacterMovement : MonoBehaviour
   private bool canMove = true;
 
   Rigidbody2D rb;
-  Vector2 moveDirection = Vector2.zero;
+  public Vector2 moveDirection = Vector2.zero;
+  public bool autoWalk = false;
 
   void Start()
   {
@@ -39,7 +40,9 @@ public class CharacterMovement : MonoBehaviour
       return;
     }
 
-    moveDirection = movementAction.ReadValue<Vector2>();
+    if (!autoWalk)
+      moveDirection = movementAction.ReadValue<Vector2>();
+
     var moving = true;
 
     if (moveDirection.x < 0)

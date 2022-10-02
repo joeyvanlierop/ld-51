@@ -129,15 +129,6 @@ public class CharacterFarming : MonoBehaviour
     }
     var pos = tilledTilemap.WorldToCell(adjustedPos);
     var tile_pos = tilledTilemap.CellToWorld(pos);
-    // Debug.Log(transform.position);
-    // Debug.Log(pos);
-    // Debug.Log(tile_pos);
-    // Debug.Log(Vector2.Distance(transform.position, tile_pos));
-    // RaycastHit2D hit = Physics2D.Raycast(transform.position, adjustedPos, Vector2.Distance(transform.position, adjustedPos));
-    // if (hit.collider != null)
-    // {
-    //   Debug.Log(hit.collider.tag);
-    // }
     return pos;
   }
 
