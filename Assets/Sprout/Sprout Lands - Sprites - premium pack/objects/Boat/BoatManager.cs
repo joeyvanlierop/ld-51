@@ -90,6 +90,7 @@ public class BoatManager : MonoBehaviour
     GameObject newBoat = Instantiate(DeliveryBoatPrefab, SpawnLocation, Quaternion.identity);
     if (CurrentPossibleSolicitingItems.Count == 0)
     {
+      Debug.Log("TEST");
       newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(ChoicesPrefab[0]);
       newBoat.GetComponent<boatDelivery>().Items.Add(ChoicesItemsPrefab[0]);
       newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(ChoicesPrefab[1]);
