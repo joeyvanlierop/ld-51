@@ -10,6 +10,7 @@ public class boatMovement : MonoBehaviour
   bool startBoat = false;
   public float slowDownTime = 1f;
   float timeElapsed = 0;
+  string boatStopName;
 
 
 
@@ -19,7 +20,10 @@ public class boatMovement : MonoBehaviour
     rb = gameObject.GetComponent<Rigidbody2D>();
     animator = gameObject.GetComponent<Animator>();
     gameObject.GetComponent<SpriteRenderer>().sortingOrder = 10;
-
+    if (Random.value < .5)
+      boatStopName = "BoatTriggerClose";
+    else
+      boatStopName = "BoatTriggerFar";
   }
 
 
@@ -96,7 +100,7 @@ public class boatMovement : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D collider)
   {
-    if (collider.CompareTag("Boat Trigger"))
+    if (collider.CompareTag("Boat Trigger") && collider.name == boatStopName)
     {
       stopBoat = true;
     }
