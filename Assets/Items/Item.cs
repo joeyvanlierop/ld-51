@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
   private Rigidbody2D rb;
   public Boolean consumable = false;
 
-  void Awake()
+  void Start()
   {
     rb = gameObject.GetComponent<Rigidbody2D>();
   }
