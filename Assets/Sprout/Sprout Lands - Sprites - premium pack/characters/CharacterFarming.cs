@@ -76,8 +76,8 @@ public class CharacterFarming : MonoBehaviour
     var heldPlant = characterInventory.heldItem?.GetComponent<IPlant>();
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
-    if (heldPlant && isTilled)
-      Plant(heldPlant, target);
+    if (heldPlant && isTilled && Plant(heldPlant, target))
+      return;
     else if (!isTilled && !isPlanted)
       Till(target);
     else if (isPlanted)
@@ -100,14 +100,20 @@ public class CharacterFarming : MonoBehaviour
     tilledTilemap.SetTile(target, tilledTile);
   }
 
-  void Plant(IPlant plant, Vector3Int target)
+  bool Plant(IPlant plant, Vector3Int target)
   {
+    var hillTile = hillTilemap.GetTile(target);
+    if (plant.GetComponent<Bush>() && !hillTile)
+      return false;
+
     if (plantManager.Plant(plant, target))
     {
       characterInventory.heldItem = null;
       plant.gameObject.SetActive(false);
       tilledTilemap.SetTile(target, null);
+      return true;
     }
+    return false;
   }
 
   void Harvest(Vector3Int target)

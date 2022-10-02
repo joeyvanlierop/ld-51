@@ -7,6 +7,6 @@ public class PlayButtonStuff : MonoBehaviour
 
   void FixedUpdate()
   {
-    // transform.localPosition = Vector2.up * Mathf.Cos(Time.time * hoverSpeed) * hoverAmplitude;
+    transform.localPosition = Vector2.up * Mathf.Cos(Time.time * hoverSpeed) * hoverAmplitude;
   }
 }
