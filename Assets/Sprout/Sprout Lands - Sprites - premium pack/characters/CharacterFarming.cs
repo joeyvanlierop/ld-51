@@ -79,6 +79,7 @@ public class CharacterFarming : MonoBehaviour
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
 
+    Debug.Log("TEST1");
     if (!heldItem)
     {
       var colliders = Physics2D.OverlapCircleAll(transform.position, REACH);
@@ -93,17 +94,27 @@ public class CharacterFarming : MonoBehaviour
       }
     }
 
+    Debug.Log("TEST2");
     if (heldItem && heldItem.consumable)
     {
       heldItem.Consume(target);
       characterInventory.heldItem = null;
     }
     else if (heldPlant && isTilled && Plant(heldPlant, target))
+    {
+      Debug.Log("TEST3");
       return;
+    }
     else if (!isTilled && !isPlanted)
+    {
       Till(target);
+      Debug.Log("TEST4");
+    }
     else if (isPlanted)
+    {
       Harvest(target);
+      Debug.Log("TEST5");
+    }
   }
 
   void Till(Vector3Int target)
@@ -123,6 +134,8 @@ public class CharacterFarming : MonoBehaviour
   bool Plant(IPlant plant, Vector3Int target)
   {
     var hillTile = hillTilemap.GetTile(target);
+    Debug.Log(hillTile);
+    Debug.Log(plant.GetComponent<Bush>());
     if (plant.GetComponent<Bush>() && !hillTile)
       return false;
 

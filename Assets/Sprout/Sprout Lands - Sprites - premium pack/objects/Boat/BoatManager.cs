@@ -36,7 +36,7 @@ public class BoatManager : MonoBehaviour
 
   int rounds = 0;
 
-  int maxItems = 5;
+  int maxItems = rounds;
 
   public Event myTrigger;
 
@@ -122,10 +122,17 @@ public class BoatManager : MonoBehaviour
 
   void SpawnNormalBoat()
   {
-
+    if (rounds < 5)
+    {
+      maxItems = rounds;
+    }
+    else if (rounds % 10 == 0)
+    {
+      maxItems++;
+    }
     GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
     var wantedItems = newBoat.GetComponent<boatSoliciting>().wantedItems;
-    for (int i = 0; i < rounds; i++)
+    for (int i = 0; i < maxItems; i++)
     {
       var itemIndex = GetRandomWeightedIndex(CurrentWeightedItemsPrefab);
       if (wantedItems.ContainsKey(CurrentPossibleSolicitingItems[itemIndex]))
