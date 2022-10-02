@@ -167,7 +167,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 999dc585ddc32304c89b2f6c2463e81c, type: 2}
   - {fileID: 11400000, guid: 5d85c264608916249871d19ce51266e9, type: 2}
   minGrowTime: 4
-  maxGrowTime: 8
+  maxGrowTime: 10
   harvestItem: {fileID: 3222908055170863070, guid: ef2e85bd93975174a8f67ef60a072404, type: 3}
   harvestSeedName: Pumpkin Seeds
   maxHarvestDropped: 1
