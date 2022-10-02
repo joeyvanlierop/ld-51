@@ -333,6 +333,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1601058062}
     - target: {fileID: 87399680, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
+      propertyPath: gameStateManager
+      value: 
+      objectReference: {fileID: 2085159847}
+    - target: {fileID: 87399680, guid: bd8bdfa8141bf3443bad4a978115bf06, type: 3}
       propertyPath: tilledPreviewTilemap
       value: 
       objectReference: {fileID: 1184079259}

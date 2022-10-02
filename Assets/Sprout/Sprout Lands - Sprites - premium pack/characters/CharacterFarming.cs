@@ -17,6 +17,7 @@ public class CharacterFarming : MonoBehaviour
   private CharacterMovement characterMovement;
   private CharacterInventory characterInventory;
   public PlantManager plantManager;
+  public GameStateManager gameStateManager;
   private Animator animator;
 
   public InputAction action;
@@ -34,6 +35,9 @@ public class CharacterFarming : MonoBehaviour
 
   void Update()
   {
+    if (gameStateManager.gameState == GameState.MAIN_MENU)
+      return;
+
     var target = GetTarget();
     if (!target.Equals(previousPos))
     {
@@ -65,6 +69,9 @@ public class CharacterFarming : MonoBehaviour
 
   void PerformAction()
   {
+    if (gameStateManager.gameState == GameState.MAIN_MENU)
+      return;
+
     var target = GetTarget();
     var heldPlant = characterInventory.heldItem?.GetComponent<IPlant>();
     var isTilled = tilledTilemap.HasTile(target);
