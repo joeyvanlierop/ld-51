@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 5658646216285111308, guid: a65db7b26d39dcb43aaba039bf552f26, type: 3}
   - {fileID: 5658646216285111308, guid: dd24ccbcb5b699343a740641ebe955b5, type: 3}
   - {fileID: 5658646216285111308, guid: 42cc601395ee6ec42bd3c8067284dabd, type: 3}
-  - {fileID: 5658646216285111308, guid: 42cc601395ee6ec42bd3c8067284dabd, type: 3}
+  - {fileID: 5658646216285111308, guid: fb8debfad009fb24fb66e8c678adbc13, type: 3}
   BoatPrefab: {fileID: 2355059698630714360, guid: 28b9078d426baf14fa8e83840672c853, type: 3}
   DeliveryBoatPrefab: {fileID: 2355059698630714360, guid: 9b4869ad60cee824d8235210e2dd47a4, type: 3}
   GameStateManager: {fileID: 0}
@@ -71,6 +71,8 @@ MonoBehaviour:
   - {fileID: 2501694547114796135, guid: e1d66e0b49d7efb4ca8ea31815e5a2ea, type: 3}
   - {fileID: 3222908055170863068, guid: fabdc5c6908026f41bacc092cec2ccd4, type: 3}
   - {fileID: 3392736759909090621, guid: 6fa12ff49aa4e3f4c9e517b3aab8c383, type: 3}
+  WeightedItemsPrefab: 
+  CurrentWeightedItemsPrefab: 
   MaxBoats: 1
   MinBoatX: -18
   BetweenBoatTimer: {fileID: 6318988590025103166, guid: 7237fa310b089854fabf258001c45a9b, type: 3}
