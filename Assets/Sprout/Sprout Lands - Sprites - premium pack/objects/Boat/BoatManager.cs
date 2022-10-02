@@ -12,9 +12,9 @@ public class BoatManager : MonoBehaviour
 
     public List<GameObject> ChoicesPrefab = new List<GameObject>();
 
-    public List<Item> ItemsPrefab = new List<Item>();
+    public List<Item> ChoicesItemsPrefab = new List<Item>();
 
-    List<GameObject> CurrentPossibleChoices = new List<GameObject>();
+    Dictionary<GameObject, Item> CurrentPossibleChoices = new Dictionary<GameObject, Item>();
 
     List<GameObject> CurrentPossibleSolicitingItems = new List<GameObject>();
 
@@ -31,12 +31,18 @@ public class BoatManager : MonoBehaviour
 
     int rounds = 0;
 
+    int maxItems = 5;
+
 
 
     public Vector3 SpawnLocation = new Vector3(13.29f, -2.36f, 0.02834536f);
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < ChoicesPrefab.Count; i++) {
+            CurrentPossibleChoices.Add(ChoicesPrefab[i], ChoicesItemsPrefab[i]);
+        }
+
 
     }
 
@@ -52,22 +58,45 @@ public class BoatManager : MonoBehaviour
         } else {
             SpawnNormalBoat();
         }
+        rounds++;
     }
 
     void SpawnDeliveryBoat() {
         GameObject newBoat = Instantiate(DeliveryBoatPrefab, SpawnLocation, Quaternion.identity);
-        foreach (GameObject choice in ChoicesPrefab) {
-            newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(choice);
-            // newBoat.GetComponent<boatDelivery>().Items.Add();
+        if (CurrentPossibleSolicitingItems.Count == 0) {
+            newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(ChoicesPrefab[0]);
+            newBoat.GetComponent<boatDelivery>().Items.Add(ChoicesItemsPrefab[0]);
+            newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(ChoicesPrefab[1]);
+            newBoat.GetComponent<boatDelivery>().Items.Add(ChoicesItemsPrefab[1]);
+            newBoat.GetComponent<boatDelivery>().ChoiceCallback = GetChoice;
+            Boats.Add(newBoat);
+            return;
         }
+        var addedChoice = 0;
+        while (addedChoice != 2) {
+            foreach (var pair in CurrentPossibleChoices) {
+                bool toAdd = Random.Range(0, 2) == 1;
+                if (toAdd) {
+                    newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(pair.Key);
+                    newBoat.GetComponent<boatDelivery>().Items.Add(pair.Value);
+                    addedChoice++;
+                    if (addedChoice == 2) {
+                        break;
+                    }
+                }
+            }
+        }
+        newBoat.GetComponent<boatDelivery>().ChoiceCallback = GetChoice;
         Boats.Add(newBoat);
     }
 
     void SpawnNormalBoat() {
         GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
-
-        foreach (GameObject PossibleItem in PossibleSolicitingItems) {
-            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), Random.Range(0, 2));
+        var choseItems = 0;
+        foreach (GameObject PossibleItem in CurrentPossibleSolicitingItems) {
+            var thisChoice = Random.Range(1, maxItems - choseItems);
+            choseItems += thisChoice;
+            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), 2);
         }
         Boats.Add(newBoat);
     }
@@ -83,16 +112,29 @@ public class BoatManager : MonoBehaviour
         Destroy(boat);
     }
 
-    void GetChoice(GameObject boat) {
-        if (boat.GetComponent<boatSoliciting>() == null) {
+    void GetChoice(GameObject choice) {
+        var choiceIndex = 0;
+        Debug.Log(choice.name);
+        // int choiceIndex = CurrentPossibleChoices.Keys.ToList().IndexOf(choice);
+        bool found = false;
+        for (int i = 0; i < ChoicesPrefab.Count; i++) {
+            if (choice.name.Split()[0] == ChoicesPrefab[i].name.Split()[0]) {
+                choiceIndex = i;
+                found = true;
+            }
+        }   
 
+        if (!found) {
+            Debug.Log("Panic!");
+            Debug.Log(choiceIndex);
         } else {
-
+            CurrentPossibleSolicitingItems.Add(PossibleSolicitingItems[choiceIndex]);
+            CurrentPossibleChoices.Remove(choice);
         }
     }
     
     void FixedUpdate() {
-        if (Boats.Count == MaxBoats) {
+        if (Boats.Count >= 1) {
             if (Boats[0].transform.position.x < MinBoatX) {
                 RemoveBoat(Boats[0]);
             }
