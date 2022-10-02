@@ -4602,6 +4602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LadderTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 567654295155500985, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
+      propertyPath: m_TagString
+      value: Ladder Trigger
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f90ac7854dd97e54ebef3154b936f528, type: 3}
 --- !u!1 &1688707878
@@ -23768,24 +23772,6 @@ MonoBehaviour:
   gameState: 0
   playButton: {fileID: 1877382667}
   characterMovement: {fileID: 87399700}
-  startAction:
-    m_Name: Start
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e9385cd4-dde3-4c88-a96c-d335c22e5d85
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: c65adeea-5757-47a7-a4cd-0765f0f801ce
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Start
-      m_Flags: 0
-    m_Flags: 0
-  startButton: {fileID: 1877382669}
 --- !u!4 &2085159848
 Transform:
   m_ObjectHideFlags: 0
@@ -23808,6 +23794,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: GameStateManager
+      value: 
+      objectReference: {fileID: 2085159846}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesPrefab.Array.size
       value: 5

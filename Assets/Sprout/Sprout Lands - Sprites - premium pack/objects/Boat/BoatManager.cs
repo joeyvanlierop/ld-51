@@ -29,7 +29,7 @@ public class BoatManager : MonoBehaviour
     bool boatTimerStarted = false;
     public GameObject BetweenBoatTimer;
     GameObject TimerRef;
-    float startTime = 11f;
+    float startTime = 0f;
 
     int rounds = 0;
 
@@ -100,12 +100,20 @@ public class BoatManager : MonoBehaviour
 
     void SpawnNormalBoat() {
         GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
-        var choseItems = 0;
-        foreach (GameObject PossibleItem in CurrentPossibleSolicitingItems) {
-            var thisChoice = Random.Range(1, maxItems - choseItems);
-            choseItems += thisChoice;
-            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), choseItems);
+        var wantedItems = newBoat.GetComponent<boatSoliciting>().wantedItems;
+        for (int i = 0; i < rounds; i++) {
+            var randIndex = Random.Range(0, CurrentPossibleSolicitingItems.Count - 1);
+            if (wantedItems.ContainsKey(CurrentPossibleSolicitingItems[randIndex])) {
+                wantedItems[CurrentPossibleSolicitingItems[randIndex]] += 1;
+            } else {
+                wantedItems.Add(Instantiate(CurrentPossibleSolicitingItems[randIndex]), 1);
+            }
         }
+        // foreach (GameObject PossibleItem in CurrentPossibleSolicitingItems) {
+        //     var thisChoice = Random.Range(1, maxItems - choseItems);
+        //     choseItems += thisChoice;
+        //     newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), choseItems);
+        // }
         newBoat.GetComponent<boatSoliciting>().EndSolicitingCallback = EndSolicitingCallback;
         Boats.Add(newBoat);
     }
