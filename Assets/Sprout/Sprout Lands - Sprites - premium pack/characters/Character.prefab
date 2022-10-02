@@ -158,3 +158,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7533902270269295122}
+  velocity: {x: 0, y: 0}
+  moveX: 0
+  moveY: 0
+  moveSpeedX: 5
+  moveSpeedY: 5
+  movementAction:
+    m_Name: Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e07abc61-efa1-4873-a1cd-005db2df7f66
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  direction: 0
