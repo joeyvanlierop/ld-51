@@ -36,15 +36,21 @@ public class CharacterInventory : MonoBehaviour
       if (collider.tag == "Item")
       {
         heldItem = collider.GetComponent<Item>();
-        heldItem.transform.SetParent(heldItemBubble.transform);
-        oldSortingOrder = heldItem.GetComponent<SpriteRenderer>().sortingOrder;
-        heldItem.GetComponent<SpriteRenderer>().sortingOrder = heldItemBubble.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        heldItem.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        heldItem.GetComponent<BoxCollider2D>().enabled = false;
-        heldItem.transform.localPosition = new Vector2(0, 0);
+        AttachItem(heldItem);
         break;
       }
     }
+  }
+
+  public Item AttachItem(Item heldItem) {
+    heldItem.transform.SetParent(heldItemBubble.transform);
+    oldSortingOrder = heldItem.GetComponent<SpriteRenderer>().sortingOrder;
+    heldItem.GetComponent<SpriteRenderer>().sortingOrder = heldItemBubble.GetComponent<SpriteRenderer>().sortingOrder + 1;
+    heldItem.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+    heldItem.GetComponent<BoxCollider2D>().enabled = false;
+    heldItem.transform.localPosition = new Vector2(0, 0);
+    this.heldItem = heldItem;
+    return heldItem;
   }
 
   private void ThrowItem()

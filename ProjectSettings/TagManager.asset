@@ -13,6 +13,7 @@ TagManager:
   - Boat Trigger
   - Item
   - Wanted Item
+  - Character
   layers:
   - Default
   - TransparentFX

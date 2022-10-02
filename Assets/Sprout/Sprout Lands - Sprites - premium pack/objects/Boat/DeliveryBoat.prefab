@@ -190,7 +190,11 @@ MonoBehaviour:
   - {fileID: 6556324798247375523}
   animator: {fileID: 4647505027795400531}
   choicesPrefab: []
+  Items:
+  - {fileID: 2501694547114796135, guid: dd13653361ff05f4e9526545215e71c3, type: 3}
+  - {fileID: 2501694547114796135, guid: ea793fd90d539e44eb5f4921fd5a0589, type: 3}
   Timer: {fileID: 6318988590025103166, guid: 7237fa310b089854fabf258001c45a9b, type: 3}
+  ChooseDistance: 2
 --- !u!1 &4835873157248067595
 GameObject:
   m_ObjectHideFlags: 0

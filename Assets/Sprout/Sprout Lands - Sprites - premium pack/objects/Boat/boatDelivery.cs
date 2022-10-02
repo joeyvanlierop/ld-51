@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class boatDelivery : MonoBehaviour
 {
@@ -11,11 +12,38 @@ public class boatDelivery : MonoBehaviour
     public List<GameObject> choicesPrefab = new List<GameObject>();
     List<GameObject> choices = new List<GameObject>();
 
+    public List<Item> Items = new List<Item>();
+
     public GameObject Timer;
 
     GameObject timerRef;
 
     Rigidbody2D rb;
+
+    public BoatControls boatControls;
+
+    bool chose = false;
+
+    public float ChooseDistance = 2f;
+
+    GameObject player;
+
+    void Awake() {
+        boatControls = new BoatControls();
+    }
+
+    void OnEnable() {
+        boatControls.Enable();
+    }
+
+    void OnDisable() {
+        boatControls.Disable();
+    }
+
+
+    void PerformAction() {
+
+    }
 
 
     // Start is called before the first frame update
@@ -26,8 +54,68 @@ public class boatDelivery : MonoBehaviour
             choices.Add(Instantiate(prefab));
         }
         SetBubbles();
+
+        boatControls.Choose.ChooseLeft.performed += ChooseLeft;
+        boatControls.Choose.ChooseRight.performed += ChooseRight;
+
+        player = GameObject.FindGameObjectWithTag("Character");
     }
 
+    void ChooseLeft(InputAction.CallbackContext context) {
+        if (!AbleToChoose()) {
+            return;
+        }
+
+        if (!GiveItem(Items[1])) {
+            return;
+        }
+
+        var remove = choices[1];
+        choices.RemoveAt(1);
+        Destroy(remove);
+
+        chose = true;
+    }
+
+    private void ChooseRight(InputAction.CallbackContext context) {
+        if (!AbleToChoose()) {
+            return;
+        }
+
+        if (!GiveItem(Items[0])) {
+            return;
+        }
+
+        var remove = choices[0];
+        choices.RemoveAt(0);
+        Destroy(remove);
+
+        chose = true;
+    }
+
+
+    bool GiveItem(Item item) {
+        var inventory = player.GetComponent<CharacterInventory>();
+        if (inventory.heldItem != null) {
+            return false;
+        }
+        inventory.AttachItem(Instantiate(item));
+
+
+
+        return true;
+    }
+
+    bool AbleToChoose() {
+        if (!(delivering && !chose)) {
+            return false;
+        }
+        if (Vector2.Distance(player.transform.position, rb.transform.position) > ChooseDistance) {
+            return false;
+        }
+
+        return true;
+    }
 
     void SetBubbles() {
         for (int i = 0; i < choices.Count; i++) {
