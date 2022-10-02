@@ -36,7 +36,7 @@ public class BoatManager : MonoBehaviour
 
   int rounds = 0;
 
-  int maxItems = rounds;
+  int maxItems = 0;
 
   public Event myTrigger;
 
