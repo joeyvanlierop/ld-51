@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ae3bbd776ddb6468c5a81db8dcab91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consumable: 0
 --- !u!61 &2501694547114796134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 490cc543fdc0b7041b651c69ba230597, type: 2}
   - {fileID: 11400000, guid: 999dc585ddc32304c89b2f6c2463e81c, type: 2}
   - {fileID: 11400000, guid: 5d85c264608916249871d19ce51266e9, type: 2}
-  minGrowTime: 5
+  minGrowTime: 4
   maxGrowTime: 10
   harvestItem: {fileID: 3222908055170863070, guid: ef2e85bd93975174a8f67ef60a072404, type: 3}
   harvestSeedName: Pumpkin Seeds

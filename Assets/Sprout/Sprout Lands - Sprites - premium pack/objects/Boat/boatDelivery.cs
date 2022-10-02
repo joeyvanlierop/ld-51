@@ -6,192 +6,225 @@ using UnityEngine.InputSystem;
 public class boatDelivery : MonoBehaviour
 {
 
-    public List<GameObject> RequestedIemsBubbles = new List<GameObject>();
-    public Animator animator;
-    bool delivering = false;
-    public List<GameObject> choicesPrefab = new List<GameObject>();
-    List<GameObject> choices = new List<GameObject>();
+  public List<GameObject> RequestedIemsBubbles = new List<GameObject>();
+  public Animator animator;
+  bool delivering = false;
+  public List<GameObject> choicesPrefab = new List<GameObject>();
+  List<GameObject> choices = new List<GameObject>();
 
-    public List<Item> Items = new List<Item>();
+  public List<Item> Items = new List<Item>();
 
-    public GameObject Timer;
+  public GameObject Timer;
 
-    GameObject timerRef;
+  GameObject timerRef;
 
-    Rigidbody2D rb;
+  Rigidbody2D rb;
 
-    public BoatControls boatControls;
+  public BoatControls boatControls;
 
-    bool chose = false;
+  bool chose = false;
 
-    public float ChooseDistance = 2f;
+  public float ChooseDistance = 2f;
 
-    GameObject player;
-
-
-    public delegate void ChoiceCallbackType(GameObject choice);
+  GameObject player;
 
 
-    public ChoiceCallbackType ChoiceCallback;
-
-    public Event myTrigger;
-
-    void Awake() {
-        myTrigger = new Event();
-        Event.Instance.EatCallbacks.Add(ResetTimer);
-        boatControls = new BoatControls();
-    }
-
-    void ResetTimer() {
-        if (Timer != null) {
-            Timer.GetComponent<Animator>().Play("time", -1, 0f);
-        }
-    }
-
-    void OnEnable() {
-        boatControls.Enable();
-    }
-
-    void OnDisable() {
-        boatControls.Disable();
-    }
+  public delegate void ChoiceCallbackType(GameObject choice);
 
 
-    void PerformAction() {
+  public ChoiceCallbackType ChoiceCallback;
 
-    }
+  public Event myTrigger;
 
+  void Awake()
+  {
+    myTrigger = new Event();
+    Event.Instance.EatCallbacks.Add(ResetTimer);
+    boatControls = new BoatControls();
+  }
 
-
-
-    // Start is called before the first frame update
-    void Start()
+  void ResetTimer()
+  {
+    if (Timer != null)
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        foreach(var prefab in choicesPrefab) {
-            choices.Add(Instantiate(prefab));
-        }
-        SetBubbles();
-
-        boatControls.Choose.ChooseLeft.performed += ChooseLeft;
-        boatControls.Choose.ChooseRight.performed += ChooseRight;
-
-        player = GameObject.FindGameObjectWithTag("Character");
+      Timer.GetComponent<Animator>().Play("time", -1, 0f);
     }
+  }
 
-    void ChooseLeft(InputAction.CallbackContext context) {
-        if (!AbleToChoose()) {
-            return;
-        }
+  void OnEnable()
+  {
+    boatControls.Enable();
+  }
 
-        if (!GiveItem(Items[1])) {
-            return;
-        }
-
-
-        
-
-        var remove = choices[1];
-        ChoiceCallback(remove);
-        choices.RemoveAt(1);
-        Destroy(remove);
-
-        chose = true;
-        HideItems();
-    }
-
-    private void ChooseRight(InputAction.CallbackContext context) {
-        if (!AbleToChoose()) {
-            return;
-        }
-
-        if (!GiveItem(Items[0])) {
-            return;
-        }
-
-        var remove = choices[0];
-        ChoiceCallback(remove);
-        choices.RemoveAt(0);
-        Destroy(remove);
-
-        chose = true;
-        HideItems();
-    }
+  void OnDisable()
+  {
+    boatControls.Disable();
+  }
 
 
-    bool GiveItem(Item item) {
-        var inventory = player.GetComponent<CharacterInventory>();
-        if (inventory.heldItem != null) {
-            return false;
-        }
-        inventory.AttachItem(Instantiate(item));
+  void PerformAction()
+  {
+
+  }
 
 
 
-        return true;
-    }
 
-    void HideItems() {
-        for (int i = 0; i < choices.Count; i++) {
-            choices[i].GetComponent<SpriteRenderer>().enabled = false;
-        }
-
-        for (int i = 0; i < RequestedIemsBubbles.Count; i++) {
-            RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = false;
-        }
-    }
-
-    bool AbleToChoose() {
-        if (!(delivering && !chose)) {
-            return false;
-        }
-        if (Vector2.Distance(player.transform.position, rb.transform.position) > ChooseDistance) {
-            return false;
-        }
-
-        return true;
-    }
-
-    void SetBubbles() {
-        for (int i = 0; i < choices.Count; i++) {
-            choices[i].transform.SetParent(RequestedIemsBubbles[i].transform);
-            choices[i].transform.localPosition = new Vector2(0, 0);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
+  // Start is called before the first frame update
+  void Start()
+  {
+    rb = gameObject.GetComponent<Rigidbody2D>();
+    foreach (var prefab in choicesPrefab)
     {
-        if (!animator.GetBool("isCruisin")) {
-            if (!delivering) {
-                delivering = true;
-                StartDelivering();
-            }
-        } else {
-            if (delivering) {
-                delivering = false;
-                StopDelivering();
-            }
-        }
+      choices.Add(Instantiate(prefab));
+    }
+    SetBubbles();
+
+    boatControls.Choose.ChooseLeft.performed += ChooseLeft;
+    boatControls.Choose.ChooseRight.performed += ChooseRight;
+
+    player = GameObject.FindGameObjectWithTag("Character");
+  }
+
+  void ChooseLeft(InputAction.CallbackContext context)
+  {
+    if (!AbleToChoose())
+    {
+      return;
+    }
+
+    if (!GiveItem(Items[1]))
+    {
+      return;
     }
 
 
-    void StartDelivering() {
-        for (int i = 0; i < choices.Count; i++) {
-            choices[i].GetComponent<SpriteRenderer>().enabled = true;
-            RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = true;
-        }
-        timerRef = Instantiate(Timer, new Vector2(rb.transform.position.x, rb.transform.position.y - 1.5f), Quaternion.identity);
+
+
+    var remove = choices[1];
+    ChoiceCallback(remove);
+    choices.RemoveAt(1);
+    Destroy(remove);
+
+    chose = true;
+    HideItems();
+  }
+
+  private void ChooseRight(InputAction.CallbackContext context)
+  {
+    if (!AbleToChoose())
+    {
+      return;
     }
 
-    void StopDelivering() {
-        HideItems();
-        Destroy(timerRef);
+    if (!GiveItem(Items[0]))
+    {
+      return;
     }
 
-    public void DeleteAll() {
-        foreach(var choice in choices) {
-            Destroy(choice);
-        }
+    var remove = choices[0];
+    ChoiceCallback(remove);
+    choices.RemoveAt(0);
+    Destroy(remove);
+
+    chose = true;
+    HideItems();
+  }
+
+
+  bool GiveItem(Item item)
+  {
+    var inventory = player.GetComponent<CharacterInventory>();
+    if (inventory.heldItem != null)
+    {
+      return false;
     }
+    inventory.AttachItem(Instantiate(item));
+
+
+
+    return true;
+  }
+
+  void HideItems()
+  {
+    for (int i = 0; i < choices.Count; i++)
+    {
+      choices[i].GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    for (int i = 0; i < RequestedIemsBubbles.Count; i++)
+    {
+      RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = false;
+    }
+  }
+
+  bool AbleToChoose()
+  {
+    if (!(delivering && !chose))
+    {
+      return false;
+    }
+    if (Vector2.Distance(player.transform.position, rb.transform.position) > ChooseDistance)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  void SetBubbles()
+  {
+    for (int i = 0; i < choices.Count; i++)
+    {
+      choices[i].transform.SetParent(RequestedIemsBubbles[i].transform);
+      choices[i].transform.localPosition = new Vector2(0, 0);
+    }
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (!animator.GetBool("isCruisin"))
+    {
+      if (!delivering)
+      {
+        delivering = true;
+        StartDelivering();
+      }
+    }
+    else
+    {
+      if (delivering)
+      {
+        delivering = false;
+        StopDelivering();
+      }
+    }
+  }
+
+
+  void StartDelivering()
+  {
+    for (int i = 0; i < choices.Count; i++)
+    {
+      choices[i].GetComponent<SpriteRenderer>().enabled = true;
+      RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = true;
+    }
+    timerRef = Instantiate(Timer, new Vector2(rb.transform.position.x, rb.transform.position.y - 1.5f), Quaternion.identity);
+  }
+
+  void StopDelivering()
+  {
+    HideItems();
+    Destroy(timerRef);
+  }
+
+  public void DeleteAll()
+  {
+    foreach (var choice in choices)
+    {
+      Destroy(choice);
+    }
+  }
 }
