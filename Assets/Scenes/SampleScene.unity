@@ -2770,6 +2770,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2501694547114796135, guid: 97261d567ae04aa4595f10c13df1de95, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[6]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: PossibleSolicitingItems.Array.data[0]
       value: 
       objectReference: {fileID: 5658646216285111308, guid: 14b47022d47270e4f96627fe7b27aba2, type: 3}
