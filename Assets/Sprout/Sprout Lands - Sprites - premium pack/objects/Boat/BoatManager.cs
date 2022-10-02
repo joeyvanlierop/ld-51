@@ -76,6 +76,11 @@ public class BoatManager : MonoBehaviour
 
     if (rounds % 3 == 0)
     {
+      if (CurrentPossibleChoices.Count == 0) {
+        SpawnNormalBoat();
+        rounds += 5;
+        return;
+      }
       SpawnDeliveryBoat();
     }
     else
@@ -95,6 +100,14 @@ public class BoatManager : MonoBehaviour
       newBoat.GetComponent<boatDelivery>().Items.Add(ChoicesItemsPrefab[0]);
       newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(ChoicesPrefab[1]);
       newBoat.GetComponent<boatDelivery>().Items.Add(ChoicesItemsPrefab[1]);
+      newBoat.GetComponent<boatDelivery>().ChoiceCallback = GetChoice;
+      Boats.Add(newBoat);
+      return;
+    }
+
+    if (CurrentPossibleChoices.Count == 1) {
+      newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(ChoicesPrefab[0]);
+      newBoat.GetComponent<boatDelivery>().Items.Add(ChoicesItemsPrefab[0]);
       newBoat.GetComponent<boatDelivery>().ChoiceCallback = GetChoice;
       Boats.Add(newBoat);
       return;
