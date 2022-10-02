@@ -10,6 +10,8 @@ public class BoatManager : MonoBehaviour
     public GameObject BoatPrefab;
     public GameObject DeliveryBoatPrefab;
 
+    public GameObject GameStateManager;
+
     public List<GameObject> ChoicesPrefab = new List<GameObject>();
 
     public List<Item> ChoicesItemsPrefab = new List<Item>();
@@ -53,6 +55,11 @@ public class BoatManager : MonoBehaviour
     }
 
     void SpawnBoat() {
+        if (GameStateManager.GetComponent<GameStateManager>().gameState == GameState.MAIN_MENU) {
+            SpawnNormalBoat();
+            return;
+        }
+
         if (rounds % 3 == 0) {
             SpawnDeliveryBoat();
         } else {
@@ -96,7 +103,7 @@ public class BoatManager : MonoBehaviour
         foreach (GameObject PossibleItem in CurrentPossibleSolicitingItems) {
             var thisChoice = Random.Range(1, maxItems - choseItems);
             choseItems += thisChoice;
-            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), 2);
+            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), choseItems);
         }
         Boats.Add(newBoat);
     }

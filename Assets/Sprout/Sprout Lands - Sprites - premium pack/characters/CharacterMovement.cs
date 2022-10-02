@@ -20,11 +20,15 @@ public class CharacterMovement : MonoBehaviour
   public float moveSpeedY = 5f;
   public InputAction movementAction;
   public Direction direction = Direction.DOWN;
+
   private bool canMove = true;
 
   Rigidbody2D rb;
   public Vector2 moveDirection = Vector2.zero;
   public bool autoWalk = false;
+
+  float oldMoveSpeedX = 0;
+  float oldMoveSpeedY = 0;
 
   void Start()
   {
@@ -103,5 +107,16 @@ public class CharacterMovement : MonoBehaviour
   private void OnDisable()
   {
     movementAction.Disable();
+  }
+
+  public void ResetSpeed() {
+    moveSpeedX = oldMoveSpeedX;
+    moveSpeedY = oldMoveSpeedY;
+  }
+  public void SetSpeed(float x, float y) {
+    oldMoveSpeedX = moveSpeedX;
+    oldMoveSpeedY = moveSpeedY;
+    moveSpeedX = x;
+    moveSpeedY = y;
   }
 }

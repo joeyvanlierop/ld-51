@@ -18,6 +18,7 @@ public class GameStateManager : MonoBehaviour
     gameState = GameState.PLAYING;
     playButton.gameObject.SetActive(false);
     characterMovement.autoWalk = false;
+    characterMovement.SetSpeed(5, 5);
   }
 
   public void EndGame()

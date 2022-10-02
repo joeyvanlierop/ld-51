@@ -10,6 +10,7 @@ public class AutoWalk : MonoBehaviour
   void Start()
   {
     characterMovement = gameObject.GetComponent<CharacterMovement>();
+    characterMovement.SetSpeed(1, 1);
     characterMovement.autoWalk = true;
     StartCoroutine(Walk());
   }
@@ -23,9 +24,11 @@ public class AutoWalk : MonoBehaviour
     characterMovement.moveDirection = Vector2.zero;
     var waitTime = Random.Range(2, 4);
     yield return new WaitForSeconds(waitTime);
-    if (gameStateManager.gameState == GameState.MAIN_MENU)
+    if (gameStateManager.gameState == GameState.MAIN_MENU) {
       StartCoroutine(Walk());
-    else
+    } else {
+      characterMovement.SetSpeed(5, 5);
       characterMovement.autoWalk = false;
+    }
   }
 }
