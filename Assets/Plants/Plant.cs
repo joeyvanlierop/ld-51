@@ -10,7 +10,7 @@ public class Plant : MonoBehaviour
   private GameObject harvestSeed;
   public int minGrowTime = 1;
   public int maxGrowTime = 5;
-  public float maxHervestDropped = 1;
+  public float maxHarvestDropped = 1;
   public float maxSeedsDropped = 3;
 
   void Awake()
@@ -21,7 +21,7 @@ public class Plant : MonoBehaviour
   public void Harvest(Vector3 pos)
   {
     var adjustedPos = new Vector3(pos.x + 0.5f, pos.y + 0.5f, pos.z);
-    for (int i = 0; i < Random.Range(1, maxSeedsDropped); i++)
+    for (int i = 0; i < Random.Range(1, maxHarvestDropped); i++)
     {
       Burst(harvestItem, adjustedPos);
     }

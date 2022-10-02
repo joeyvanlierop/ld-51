@@ -12,6 +12,7 @@ public class CharacterFarming : MonoBehaviour
   public Tilemap groundTilemap;
   public Tilemap hillTilemap;
   public Tilemap tilledTilemap;
+  public Tilemap bridgeTilemap;
   public Tilemap tilledPreviewTilemap;
   private CharacterMovement characterMovement;
   private CharacterInventory characterInventory;
@@ -50,6 +51,9 @@ public class CharacterFarming : MonoBehaviour
   {
     var groundTile = groundTilemap.GetTile(target);
     var hillTile = hillTilemap.GetTile(target);
+    var bridgeTile = bridgeTilemap.GetTile(target);
+    if (bridgeTile && hillTile)
+      return false;
     if (!hillTile && !groundTile)
       return false;
     if (hillTile && !blacklistedTiles.Contains(hillTile))
@@ -91,9 +95,6 @@ public class CharacterFarming : MonoBehaviour
 
   void Plant(Plant plant, Vector3Int target)
   {
-    var tile = tilledTilemap.GetTile(target);
-    if (!tile)
-      return;
     if (plantManager.Plant(plant, target))
     {
       characterInventory.heldItem = null;

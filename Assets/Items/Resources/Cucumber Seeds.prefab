@@ -161,10 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 0
   stages:
-  - {fileID: 11400000, guid: 2ad21218d39f3d0448142fcf812a73ee, type: 2}
-  - {fileID: 11400000, guid: 490cc543fdc0b7041b651c69ba230597, type: 2}
-  - {fileID: 11400000, guid: 999dc585ddc32304c89b2f6c2463e81c, type: 2}
-  - {fileID: 11400000, guid: 5d85c264608916249871d19ce51266e9, type: 2}
+  - {fileID: 11400000, guid: 0cf50a1aca779ae47af7bb1e73fda34c, type: 2}
+  - {fileID: 11400000, guid: d817408648f733f49aafada129f2ce62, type: 2}
+  - {fileID: 11400000, guid: 7c25682f200fed5468bccbc11a2f0eaf, type: 2}
+  - {fileID: 11400000, guid: 77c6ecaa35a5062499d015db6fc8bafc, type: 2}
   harvestItem: {fileID: 3222908055170863070, guid: f552f940b221c9e4a84ac2b9abf25c4e, type: 3}
   harvestSeedName: Cucumber Seeds
   minGrowTime: 1
