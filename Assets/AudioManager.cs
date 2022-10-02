@@ -24,9 +24,7 @@ public class AudioManager : MonoBehaviour
 
   IEnumerator WaitForSongEnd(Sound s)
   {
-    Debug.Log("Test1");
     yield return new WaitUntil(() => !s.source.isPlaying && s.source.time == 0);
-    Debug.Log("Test2");
     Play(s.nextSound);
   }
 
