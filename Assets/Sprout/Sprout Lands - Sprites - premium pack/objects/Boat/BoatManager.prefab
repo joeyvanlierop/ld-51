@@ -44,18 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7236cd07bed3eaa44b09808c2e8f4d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PossibleItems:
-  - {fileID: 5658646216285111308, guid: 14b47022d47270e4f96627fe7b27aba2, type: 3}
-  - {fileID: 5658646216285111308, guid: 46c07dc07441942479d194c69adb8012, type: 3}
-  - {fileID: 5528478166303001501, guid: 7aa0c5206725c2042a46cd2169bd5b8e, type: 3}
-  - {fileID: 5658646216285111308, guid: 14ee2ae5d884f124cab530a5e9bad556, type: 3}
-  - {fileID: 5658646216285111308, guid: a65db7b26d39dcb43aaba039bf552f26, type: 3}
+  PossibleSolicitingItems: []
   BoatPrefab: {fileID: 2355059698630714360, guid: 28b9078d426baf14fa8e83840672c853, type: 3}
   DeliveryBoatPrefab: {fileID: 2355059698630714360, guid: 9b4869ad60cee824d8235210e2dd47a4, type: 3}
   ChoicesPrefab:
   - {fileID: 5658646216285111308, guid: 260501aaa131f8743a7a6cbe1cd6c493, type: 3}
   - {fileID: 5658646216285111308, guid: 12d9efd9b3f3d3b4690a9599b468e233, type: 3}
+  ItemsPrefab: []
   MaxBoats: 1
   MinBoatX: -18
   BetweenBoatTimer: {fileID: 6318988590025103166, guid: 7237fa310b089854fabf258001c45a9b, type: 3}
-  SpawnLocation: {x: 13.29, y: -2.36, z: 0.02834536}
+  SpawnLocation: {x: 15, y: -5, z: 0.02834536}
