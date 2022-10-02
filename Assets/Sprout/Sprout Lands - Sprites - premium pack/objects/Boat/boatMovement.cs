@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class boatMovement : MonoBehaviour
@@ -12,6 +10,8 @@ public class boatMovement : MonoBehaviour
   bool startBoat = false;
   public float slowDownTime = 1f;
   float timeElapsed = 0;
+
+
 
   // Start is called before the first frame update
   void Start()
@@ -33,6 +33,12 @@ public class boatMovement : MonoBehaviour
     {
       animator.SetBool("isCruisin", true);
     }
+  }
+
+  public void ResetTimer()
+  {
+    if (boatStopped && timeElapsed < 10)
+      timeElapsed = 0;
   }
 
   // Update is called once per frame

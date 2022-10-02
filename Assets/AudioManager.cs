@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -15,12 +16,18 @@ public class AudioManager : MonoBehaviour
       s.source.volume = s.volume;
       s.source.pitch = s.pitch;
       s.source.loop = s.loop;
+      s.nextSound = "ThemeLoop";
     }
+
+    Play("ThemeStart");
   }
 
-  void Start()
+  IEnumerator WaitForSongEnd(Sound s)
   {
-    Play("Theme");
+    Debug.Log("Test1");
+    yield return new WaitUntil(() => !s.source.isPlaying && s.source.time == 0);
+    Debug.Log("Test2");
+    Play(s.nextSound);
   }
 
   public void Play(string name)
@@ -33,6 +40,8 @@ public class AudioManager : MonoBehaviour
     }
 
     s.source.Play();
+    if (s.nextSound != null)
+      StartCoroutine(WaitForSongEnd(s));
   }
 
   //this addition to the code was made by me, the rest was from Brackeys tutorial
