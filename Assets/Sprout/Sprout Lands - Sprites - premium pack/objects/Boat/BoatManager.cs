@@ -122,7 +122,7 @@ public class BoatManager : MonoBehaviour
 
   void SpawnNormalBoat()
   {
-    if (rounds < 5)
+    if (rounds < 3)
     {
       maxItems = rounds;
     }
