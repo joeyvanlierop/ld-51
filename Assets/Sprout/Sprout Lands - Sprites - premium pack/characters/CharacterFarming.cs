@@ -81,9 +81,7 @@ public class CharacterFarming : MonoBehaviour
 
     if (!heldItem)
     {
-      Debug.Log("Debug1");
       var colliders = Physics2D.OverlapCircleAll(transform.position, REACH);
-      Debug.Log(colliders);
       foreach (var collider in colliders)
       {
         if (collider.tag == "Cow")
