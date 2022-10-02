@@ -64,4 +64,4 @@ MonoBehaviour:
   MaxBoats: 1
   MinBoatX: -18
   BetweenBoatTimer: {fileID: 6318988590025103166, guid: 7237fa310b089854fabf258001c45a9b, type: 3}
-  SpawnLocation: {x: 15, y: -4.5, z: 0.02834536}
+  SpawnLocation: {x: 15, y: -2.5, z: 0.02834536}
