@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501694547114796133}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6600001, y: -0.03550005, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000000029802322, y: 0.030503392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -124,7 +124,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8678188, y: 0.9389932}
   m_EdgeRadius: 0
 --- !u!50 &2501694547114796130
 Rigidbody2D:
@@ -165,8 +165,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 490cc543fdc0b7041b651c69ba230597, type: 2}
   - {fileID: 11400000, guid: 999dc585ddc32304c89b2f6c2463e81c, type: 2}
   - {fileID: 11400000, guid: 5d85c264608916249871d19ce51266e9, type: 2}
+  minGrowTime: 5
+  maxGrowTime: 10
   harvestItem: {fileID: 3222908055170863070, guid: ef2e85bd93975174a8f67ef60a072404, type: 3}
   harvestSeedName: Pumpkin Seeds
-  minGrowTime: 3
-  maxGrowTime: 6
+  maxHarvestDropped: 1
   maxSeedsDropped: 3

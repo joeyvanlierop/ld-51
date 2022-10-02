@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501694547114796133}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6600001, y: -0.03550005, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.002542168, y: 0.030503392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -124,7 +124,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8729026, y: 0.9389932}
   m_EdgeRadius: 0
 --- !u!50 &2501694547114796130
 Rigidbody2D:
@@ -165,8 +165,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0dc798ac3585e0f4ca39c51e43e83400, type: 2}
   - {fileID: 11400000, guid: 5c1f2f719d8130b45963e208750d7ab8, type: 2}
   - {fileID: 11400000, guid: 0c26e527a265b764ebae5f80f2057cf1, type: 2}
-  harvestItem: {fileID: 3222908055170863070, guid: c1471ee19405b394b8fd4c2759676f3a, type: 3}
-  harvestSeedName: Carrot Seeds
   minGrowTime: 1
   maxGrowTime: 5
+  harvestItem: {fileID: 3222908055170863070, guid: c1471ee19405b394b8fd4c2759676f3a, type: 3}
+  harvestSeedName: Carrot Seeds
+  maxHarvestDropped: 1
   maxSeedsDropped: 2

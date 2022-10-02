@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2501694547114796133}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6600001, y: -0.03550005, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0004618913, y: 0.027961493}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -124,7 +124,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.874431, y: 0.944077}
   m_EdgeRadius: 0
 --- !u!50 &2501694547114796130
 Rigidbody2D:
@@ -165,9 +165,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d817408648f733f49aafada129f2ce62, type: 2}
   - {fileID: 11400000, guid: 7c25682f200fed5468bccbc11a2f0eaf, type: 2}
   - {fileID: 11400000, guid: 77c6ecaa35a5062499d015db6fc8bafc, type: 2}
-  harvestItem: {fileID: 3222908055170863070, guid: f552f940b221c9e4a84ac2b9abf25c4e, type: 3}
-  harvestSeedName: Cucumber Seeds
   minGrowTime: 1
   maxGrowTime: 8
-  maxHervestDropped: 2
+  harvestItem: {fileID: 3222908055170863070, guid: f552f940b221c9e4a84ac2b9abf25c4e, type: 3}
+  harvestSeedName: Cucumber Seeds
+  maxHarvestDropped: 1
   maxSeedsDropped: 2

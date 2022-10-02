@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7175389137492656191}
   m_Layer: 0
   m_Name: DownRampTrigger
-  m_TagString: Down Hill Trigger
+  m_TagString: Ladder Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 567654295155500985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.0079, y: 1.0315, z: 0}
-  m_LocalScale: {x: 1.8389492, y: 0.051260274, z: 1}
+  m_LocalScale: {x: 2.6709788, y: 0.6148566, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.98963165, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.98963165, g: 0, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
