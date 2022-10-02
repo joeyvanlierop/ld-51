@@ -28,6 +28,12 @@ public class boatDelivery : MonoBehaviour
 
     GameObject player;
 
+
+    public delegate void ChoiceCallbackType(GameObject choice);
+
+
+    public ChoiceCallbackType ChoiceCallback;
+
     void Awake() {
         boatControls = new BoatControls();
     }
@@ -44,6 +50,8 @@ public class boatDelivery : MonoBehaviour
     void PerformAction() {
 
     }
+
+
 
 
     // Start is called before the first frame update
@@ -70,7 +78,12 @@ public class boatDelivery : MonoBehaviour
             return;
         }
 
+
+        
+
         var remove = choices[1];
+        Debug.Log("Callback before");
+        ChoiceCallback(remove);
         choices.RemoveAt(1);
         Destroy(remove);
 
@@ -87,6 +100,7 @@ public class boatDelivery : MonoBehaviour
         }
 
         var remove = choices[0];
+        ChoiceCallback(remove);
         choices.RemoveAt(0);
         Destroy(remove);
 
@@ -152,6 +166,9 @@ public class boatDelivery : MonoBehaviour
     void StopDelivering() {
         for (int i = 0; i < choices.Count; i++) {
             choices[i].GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        for (int i = 0; i < RequestedIemsBubbles.Count; i++) {
             RequestedIemsBubbles[i].GetComponent<SpriteRenderer>().enabled = false;
         }
         Destroy(timerRef);
