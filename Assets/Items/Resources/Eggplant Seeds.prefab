@@ -170,5 +170,5 @@ MonoBehaviour:
   maxGrowTime: 10
   harvestItem: {fileID: 3222908055170863070, guid: ae4fe97bee17ce04cb910fe96dee7d11, type: 3}
   harvestSeedName: Eggplant Seeds
-  maxHarvestDropped: 2
+  maxHarvestDropped: 3
   maxSeedsDropped: 2
