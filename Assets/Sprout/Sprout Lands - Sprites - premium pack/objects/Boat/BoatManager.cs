@@ -35,7 +35,8 @@ public class BoatManager : MonoBehaviour
 
     int maxItems = 5;
 
-
+    public Event myTrigger;
+    
 
     public Vector3 SpawnLocation = new Vector3(13.29f, -2.36f, 0.02834536f);
     // Start is called before the first frame update
@@ -46,6 +47,11 @@ public class BoatManager : MonoBehaviour
         }
 
 
+    }
+
+    void Awake() {
+        myTrigger = new Event();
+        Event.Instance.EatCallbacks.Add(ResetTimer);
     }
 
     // Update is called once per frame
@@ -178,6 +184,13 @@ public class BoatManager : MonoBehaviour
                 boatTimerStarted = true;
             }
             startTime += Time.deltaTime;
+        }
+    }
+
+    void ResetTimer() {
+        Debug.Log("Works");
+        if (TimerRef != null) {
+            TimerRef.GetComponent<Animator>().Play("time", -1, 0f);
         }
     }
 }

@@ -9,10 +9,15 @@ public class boatMovement : MonoBehaviour
   bool boatStopped = false;
   bool startBoat = false;
   public float slowDownTime = 1f;
-  float timeElapsed = 0;
+  public float timeElapsed = 0;
   string boatStopName;
 
+  public Event myTrigger;
 
+    void Awake() {
+        myTrigger = new Event();
+        Event.Instance.EatCallbacks.Add(ResetTimer);
+    }
 
   // Start is called before the first frame update
   void Start()

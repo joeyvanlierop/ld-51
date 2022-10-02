@@ -34,8 +34,18 @@ public class boatDelivery : MonoBehaviour
 
     public ChoiceCallbackType ChoiceCallback;
 
+    public Event myTrigger;
+
     void Awake() {
+        myTrigger = new Event();
+        Event.Instance.EatCallbacks.Add(ResetTimer);
         boatControls = new BoatControls();
+    }
+
+    void ResetTimer() {
+        if (Timer != null) {
+            Timer.GetComponent<Animator>().Play("time", -1, 0f);
+        }
     }
 
     void OnEnable() {

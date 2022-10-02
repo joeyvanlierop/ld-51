@@ -20,6 +20,8 @@ public class boatSoliciting : MonoBehaviour
 
     public GameObject Timer;
 
+    public Event myTrigger;
+
     float timeout = 2f;
     float time = 0;
 
@@ -33,6 +35,17 @@ public class boatSoliciting : MonoBehaviour
 
 
     public EndSolicitingCallbackType EndSolicitingCallback;
+
+    void Awake() {
+        myTrigger = new Event();
+        Event.Instance.EatCallbacks.Add(ResetTimer);
+    }
+
+    void ResetTimer() {
+        if (Timer != null) {
+            Timer.GetComponent<Animator>().Play("time", -1, 0f);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
