@@ -14,6 +14,9 @@ public class boatSoliciting : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public GameObject Timer;
+
+    GameObject timerRef;
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +81,7 @@ public class boatSoliciting : MonoBehaviour
                 item.GetComponent<SpriteRenderer>().enabled = true;
             }
         }
+        timerRef = Instantiate(Timer, new Vector2(rb.transform.position.x, rb.transform.position.y - 1.5f), Quaternion.identity);
     }
 
     void StopSoliciting() {
@@ -87,6 +91,7 @@ public class boatSoliciting : MonoBehaviour
                 item.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
+        Destroy(timerRef);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -95,7 +100,7 @@ public class boatSoliciting : MonoBehaviour
             GameObject key = new GameObject();
 
             foreach (var wantedItemPair in wantedItems) {
-                if (true) {
+                if (collision.gameObject.name == wantedItemPair.Key.name) {
                     found = true;
                     key = wantedItemPair.Key;
                 }
@@ -118,6 +123,19 @@ public class boatSoliciting : MonoBehaviour
         if (wantedItems[key] == 0) {
             displayedItems.Remove(key);
             wantedItems.Remove(key);
+        }
+    }
+
+    public void DeleteAll() {
+        foreach (var pair in displayedItems) {
+            foreach (var item in pair.Value) {
+                Destroy(item);
+            }
+        }
+
+        foreach (var pair in wantedItems)
+        {
+            Destroy(pair.Key);
         }
     }
 

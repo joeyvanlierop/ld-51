@@ -445,3 +445,4 @@ MonoBehaviour:
   - {fileID: 32204473}
   RequestedIemsBubble: {fileID: 485739024}
   rb: {fileID: 0}
+  Timer: {fileID: 6318988590025103166, guid: 7237fa310b089854fabf258001c45a9b, type: 3}

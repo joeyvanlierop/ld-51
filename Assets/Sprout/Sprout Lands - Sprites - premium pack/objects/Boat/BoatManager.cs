@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BoatManager : MonoBehaviour
 {
@@ -13,9 +14,9 @@ public class BoatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var go in GameObject.FindGameObjectsWithTag("Wanted Item")) {
-            PossibleItems.Add(go);
-        }
+        // foreach (var go in GameObject.FindGameObjectsWithTag("Wanted Item")) {
+        //     PossibleItems.Add(go);
+        // }
     }
 
     // Update is called once per frame
@@ -23,17 +24,28 @@ public class BoatManager : MonoBehaviour
     {
         
     }
+
+    void SpawnBoat() {
+        GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
+        foreach (GameObject PossibleItem in PossibleItems) {
+            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), Random.Range(0, 2));
+        }
+        Boats.Add(newBoat);
+    }
     
     void FixedUpdate() {
         if (startTime > betweenBoatTime) {
             startTime = 0;
-            GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
-            foreach (GameObject PossibleItem in PossibleItems) {
-                newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), Random.Range(1, 9));
-            }
-            Boats.Add(newBoat);
+            SpawnBoat();
         } else {
             startTime += Time.deltaTime;
+        }
+
+        if (Boats.Count > 2) {
+            var boat = Boats.First();
+            boat.GetComponent<boatSoliciting>().DeleteAll();
+            Boats.RemoveAt(0);
+            Destroy(boat);
         }
     }
 }
