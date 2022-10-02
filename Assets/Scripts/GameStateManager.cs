@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -11,6 +12,8 @@ public class GameStateManager : MonoBehaviour
 {
   public GameState gameState = GameState.MAIN_MENU;
   public GameObject playButton;
+  public GameObject restartButton;
+  public GameObject gameOver;
   public CharacterMovement characterMovement;
 
   public void StartGame()
@@ -23,6 +26,13 @@ public class GameStateManager : MonoBehaviour
 
   public void EndGame()
   {
+    gameState = GameState.GAME_OVER;
+    restartButton.SetActive(true);
+    gameOver.SetActive(true);
+  }
 
+  public void RestartGame()
+  {
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
   }
 }
