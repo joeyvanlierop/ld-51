@@ -6,11 +6,18 @@ using System.Linq;
 public class BoatManager : MonoBehaviour
 {
     List<GameObject> Boats = new List<GameObject>();
-    public List<GameObject> PossibleItems = new List<GameObject>();
+    public List<GameObject> PossibleSolicitingItems = new List<GameObject>();
     public GameObject BoatPrefab;
     public GameObject DeliveryBoatPrefab;
 
     public List<GameObject> ChoicesPrefab = new List<GameObject>();
+
+    public List<Item> ItemsPrefab = new List<Item>();
+
+    List<GameObject> CurrentPossibleChoices = new List<GameObject>();
+
+    List<GameObject> CurrentPossibleSolicitingItems = new List<GameObject>();
+
     float betweenBoatTime = 10f;
 
     public int MaxBoats = 1;
@@ -21,13 +28,16 @@ public class BoatManager : MonoBehaviour
     public GameObject BetweenBoatTimer;
     GameObject TimerRef;
     float startTime = 11f;
+
+    int rounds = 0;
+
+
+
     public Vector3 SpawnLocation = new Vector3(13.29f, -2.36f, 0.02834536f);
     // Start is called before the first frame update
     void Start()
     {
-        // foreach (var go in GameObject.FindGameObjectsWithTag("Wanted Item")) {
-        //     PossibleItems.Add(go);
-        // }
+
     }
 
     // Update is called once per frame
@@ -37,14 +47,28 @@ public class BoatManager : MonoBehaviour
     }
 
     void SpawnBoat() {
-        // GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
+        if (rounds % 3 == 0) {
+            SpawnDeliveryBoat();
+        } else {
+            SpawnNormalBoat();
+        }
+    }
+
+    void SpawnDeliveryBoat() {
         GameObject newBoat = Instantiate(DeliveryBoatPrefab, SpawnLocation, Quaternion.identity);
         foreach (GameObject choice in ChoicesPrefab) {
             newBoat.GetComponent<boatDelivery>().choicesPrefab.Add(choice);
+            // newBoat.GetComponent<boatDelivery>().Items.Add();
         }
-        // foreach (GameObject PossibleItem in PossibleItems) {
-        //     newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), Random.Range(0, 2));
-        // }
+        Boats.Add(newBoat);
+    }
+
+    void SpawnNormalBoat() {
+        GameObject newBoat = Instantiate(BoatPrefab, SpawnLocation, Quaternion.identity);
+
+        foreach (GameObject PossibleItem in PossibleSolicitingItems) {
+            newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), Random.Range(0, 2));
+        }
         Boats.Add(newBoat);
     }
 
@@ -57,6 +81,14 @@ public class BoatManager : MonoBehaviour
         
         Boats.RemoveAt(0);
         Destroy(boat);
+    }
+
+    void GetChoice(GameObject boat) {
+        if (boat.GetComponent<boatSoliciting>() == null) {
+
+        } else {
+
+        }
     }
     
     void FixedUpdate() {
