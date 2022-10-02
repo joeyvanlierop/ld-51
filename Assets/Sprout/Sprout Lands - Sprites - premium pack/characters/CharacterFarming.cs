@@ -73,10 +73,16 @@ public class CharacterFarming : MonoBehaviour
       return;
 
     var target = GetTarget();
+    var heldItem = characterInventory.heldItem?.GetComponent<Item>();
     var heldPlant = characterInventory.heldItem?.GetComponent<IPlant>();
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
-    if (heldPlant && isTilled && Plant(heldPlant, target))
+    if (heldItem && heldItem.consumable)
+    {
+      heldItem.Consume();
+      heldItem = null;
+    }
+    else if (heldPlant && isTilled && Plant(heldPlant, target))
       return;
     else if (!isTilled && !isPlanted)
       Till(target);

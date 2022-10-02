@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 87399704}
   m_Layer: 3
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,6 +345,7 @@ MonoBehaviour:
   bridgeTilemap: {fileID: 0}
   tilledPreviewTilemap: {fileID: 0}
   plantManager: {fileID: 0}
+  gameStateManager: {fileID: 0}
   action:
     m_Name: Action
     m_Type: 0
