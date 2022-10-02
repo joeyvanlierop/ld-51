@@ -65,7 +65,7 @@ public class CharacterFarming : MonoBehaviour
     var heldPlant = characterInventory.heldItem?.GetComponent<Plant>();
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
-    if (heldPlant)
+    if (heldPlant && isTilled)
       Plant(heldPlant, target);
     else if (!isTilled && !isPlanted)
       Till(target);
@@ -79,6 +79,13 @@ public class CharacterFarming : MonoBehaviour
       return;
 
     animator.SetTrigger("tilling");
+    animator.SetTrigger("tilling");
+    animator.SetTrigger("tilling");
+  }
+
+  void TillCallback()
+  {
+    var target = GetTarget();
     tilledTilemap.SetTile(target, tilledTile);
   }
 
