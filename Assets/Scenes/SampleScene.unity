@@ -24273,6 +24273,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1210514435242519955
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2025281629392985597, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: plantTilemap
+      value: 
+      objectReference: {fileID: 4058590}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459812309726872125, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221064821013488612, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
+      propertyPath: m_Name
+      value: Cow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}
 --- !u!1001 &4497326771076239052
 PrefabInstance:
   m_ObjectHideFlags: 0
