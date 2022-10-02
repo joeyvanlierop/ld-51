@@ -204,7 +204,15 @@ public class BoatManager : MonoBehaviour
     {
       CurrentWeightedItemsPrefab.Add(WeightedItemsPrefab[choiceIndex]);
       CurrentPossibleSolicitingItems.Add(PossibleSolicitingItems[choiceIndex]);
-      CurrentPossibleChoices.Remove(choice);
+      //   CurrentPossibleChoices.Remove(choice);
+      foreach (var pair in CurrentPossibleChoices)
+      {
+        if (pair.Key.name.Split()[0] == choice.name.Split()[0])
+        {
+          CurrentPossibleChoices.Remove(pair.Key);
+          break;
+        }
+      }
     }
   }
 
