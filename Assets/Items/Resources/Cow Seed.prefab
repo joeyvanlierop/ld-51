@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2501694547114796129}
   - component: {fileID: 2501694547114796128}
-  - component: {fileID: 2501694547114796135}
   - component: {fileID: 2501694547114796134}
   - component: {fileID: 2501694547114796130}
   - component: {fileID: 2501694547114796131}
+  - component: {fileID: 3392736759909090621}
   m_Layer: 5
   m_Name: Cow Seed
   m_TagString: Item
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1353061001, guid: 2a1720e8a185b6f488cec195b3564477, type: 3}
+  m_Sprite: {fileID: 981035213, guid: 2a1720e8a185b6f488cec195b3564477, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,19 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2501694547114796135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2501694547114796133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78ae3bbd776ddb6468c5a81db8dcab91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  consumable: 0
 --- !u!61 &2501694547114796134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -118,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1875, y: 0.8125}
+    oldSize: {x: 1.3125, y: 0.9375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -172,3 +159,17 @@ MonoBehaviour:
   harvestSeedName: Star Seeds
   maxHarvestDropped: 2
   maxSeedsDropped: 1
+--- !u!114 &3392736759909090621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501694547114796133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda35e075ceebe2489d3403ae6568685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: 1
+  cowObject: {fileID: 9221064821013488612, guid: 2f7c4d4316550f74f87381a459a9905f, type: 3}

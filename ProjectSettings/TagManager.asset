@@ -15,6 +15,7 @@ TagManager:
   - Wanted Item
   - Character
   - Ground Collider
+  - Cow
   layers:
   - Default
   - TransparentFX

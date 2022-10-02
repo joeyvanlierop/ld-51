@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
     rb.AddForce(force, ForceMode2D.Impulse);
   }
 
-  public virtual void Consume()
+  public virtual void Consume(Vector3Int target)
   {
     throw new NotImplementedException();
   }

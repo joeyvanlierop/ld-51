@@ -24,6 +24,7 @@ public class CharacterFarming : MonoBehaviour
 
   private Vector3Int previousPos;
   private const float REACH = 0.65f;
+  public GameObject milk;
 
   void Awake()
   {
@@ -77,10 +78,27 @@ public class CharacterFarming : MonoBehaviour
     var heldPlant = characterInventory.heldItem?.GetComponent<IPlant>();
     var isTilled = tilledTilemap.HasTile(target);
     var isPlanted = plantManager.HasPlant(target);
+
+    if (!heldItem)
+    {
+      Debug.Log("Debug1");
+      var colliders = Physics2D.OverlapCircleAll(transform.position, REACH);
+      Debug.Log(colliders);
+      foreach (var collider in colliders)
+      {
+        if (collider.tag == "Cow")
+        {
+          var milkObj = Instantiate(milk, transform).GetComponent<Item>();
+          characterInventory.AttachItem(milkObj);
+          return;
+        }
+      }
+    }
+
     if (heldItem && heldItem.consumable)
     {
-      heldItem.Consume();
-      heldItem = null;
+      heldItem.Consume(target);
+      characterInventory.heldItem = null;
     }
     else if (heldPlant && isTilled && Plant(heldPlant, target))
       return;
