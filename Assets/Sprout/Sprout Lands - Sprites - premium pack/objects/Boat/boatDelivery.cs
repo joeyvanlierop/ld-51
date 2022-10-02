@@ -45,9 +45,9 @@ public class boatDelivery : MonoBehaviour
 
   void ResetTimer()
   {
-    if (Timer != null)
+    if (timerRef != null)
     {
-      Timer.GetComponent<Animator>().Play("time", -1, 0f);
+      timerRef.GetComponent<Animator>().Play("time", -1, 0f);
     }
   }
 

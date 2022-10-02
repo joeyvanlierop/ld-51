@@ -42,8 +42,8 @@ public class boatSoliciting : MonoBehaviour
     }
 
     void ResetTimer() {
-        if (Timer != null) {
-            Timer.GetComponent<Animator>().Play("time", -1, 0f);
+        if (timerRef != null) {
+            timerRef.GetComponent<Animator>().Play("time", -1, 0f);
         }
     }
 
