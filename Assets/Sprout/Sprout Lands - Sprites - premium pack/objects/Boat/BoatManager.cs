@@ -57,6 +57,7 @@ public class BoatManager : MonoBehaviour
     void SpawnBoat() {
         if (GameStateManager.GetComponent<GameStateManager>().gameState == GameState.MAIN_MENU) {
             SpawnNormalBoat();
+
             return;
         }
 
@@ -105,7 +106,17 @@ public class BoatManager : MonoBehaviour
             choseItems += thisChoice;
             newBoat.GetComponent<boatSoliciting>().wantedItems.Add(Instantiate(PossibleItem), choseItems);
         }
+        newBoat.GetComponent<boatSoliciting>().EndSolicitingCallback = EndSolicitingCallback;
         Boats.Add(newBoat);
+    }
+
+    void EndSolicitingCallback(boatSoliciting.SolicitingState state) {
+        if (state != boatSoliciting.SolicitingState.SUCCESS) {
+            if (GameStateManager.GetComponent<GameStateManager>().gameState == GameState.PLAYING) {
+                GameStateManager.GetComponent<GameStateManager>().EndGame();
+            }
+            
+        }
     }
 
     void RemoveBoat(GameObject boat) {

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
+
+
 public class boatSoliciting : MonoBehaviour
 {
 
@@ -17,6 +20,15 @@ public class boatSoliciting : MonoBehaviour
     public GameObject Timer;
 
     GameObject timerRef;
+    public enum SolicitingState {
+        SUCCESS,
+        FAIL
+    }
+
+    public delegate void EndSolicitingCallbackType(SolicitingState state);
+
+
+    public EndSolicitingCallbackType EndSolicitingCallback;
 
     // Start is called before the first frame update
     void Start()
@@ -70,9 +82,10 @@ public class boatSoliciting : MonoBehaviour
                 StopSoliciting();
             }
         }
-
-        
     }
+
+
+
 
     void StartSoliciting() {
         RequestedIemsBubble.GetComponent<SpriteRenderer>().enabled = true;
@@ -92,6 +105,13 @@ public class boatSoliciting : MonoBehaviour
             }
         }
         Destroy(timerRef);
+
+
+        if (displayedItems.Count == 0) {
+            EndSolicitingCallback(SolicitingState.SUCCESS);
+        } else {
+            EndSolicitingCallback(SolicitingState.FAIL);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
