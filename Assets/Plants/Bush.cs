@@ -10,7 +10,7 @@ public class Bush : IPlant
   public override void Harvest(Vector3 pos)
   {
     var adjustedPos = new Vector3(pos.x + 0.5f, pos.y + 0.5f, pos.z);
-    for (int i = 0; i < Random.Range(1, maxHarvestDropped); i++)
+    for (int i = 0; i < Random.Range(0, maxHarvestDropped); i++)
     {
       Burst(harvestItem, adjustedPos);
     }
