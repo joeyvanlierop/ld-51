@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ae3bbd776ddb6468c5a81db8dcab91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consumable: 0
 --- !u!61 &2501694547114796134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -169,5 +170,5 @@ MonoBehaviour:
   maxGrowTime: 8
   harvestItem: {fileID: 3222908055170863070, guid: f552f940b221c9e4a84ac2b9abf25c4e, type: 3}
   harvestSeedName: Cucumber Seeds
-  maxHarvestDropped: 1
+  maxHarvestDropped: 2
   maxSeedsDropped: 2
