@@ -2706,6 +2706,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2085159846}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesPrefab.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesPrefab.Array.data[0]
       value: 
       objectReference: {fileID: 5658646216285111308, guid: 260501aaa131f8743a7a6cbe1cd6c493, type: 3}
@@ -2734,6 +2738,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5658646216285111308, guid: 7bb08d4cc058a1a4586793509f6b2107, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesPrefab.Array.data[7]
+      value: 
+      objectReference: {fileID: 2501694547114796133, guid: 97261d567ae04aa4595f10c13df1de95, type: 3}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesItemsPrefab.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesItemsPrefab.Array.data[0]
       value: 
       objectReference: {fileID: 2501694547114796135, guid: dd13653361ff05f4e9526545215e71c3, type: 3}
@@ -2744,7 +2760,7 @@ PrefabInstance:
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesItemsPrefab.Array.data[2]
       value: 
-      objectReference: {fileID: 2501694547114796135, guid: ea793fd90d539e44eb5f4921fd5a0589, type: 3}
+      objectReference: {fileID: 2501694547114796135, guid: e1d66e0b49d7efb4ca8ea31815e5a2ea, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesItemsPrefab.Array.data[3]
       value: 
@@ -2752,7 +2768,7 @@ PrefabInstance:
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesItemsPrefab.Array.data[4]
       value: 
-      objectReference: {fileID: 2501694547114796135, guid: e1d66e0b49d7efb4ca8ea31815e5a2ea, type: 3}
+      objectReference: {fileID: 2501694547114796135, guid: ea793fd90d539e44eb5f4921fd5a0589, type: 3}
     - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: ChoicesItemsPrefab.Array.data[5]
       value: 
@@ -2761,6 +2777,46 @@ PrefabInstance:
       propertyPath: ChoicesItemsPrefab.Array.data[6]
       value: 
       objectReference: {fileID: 3392736759909090621, guid: 6fa12ff49aa4e3f4c9e517b3aab8c383, type: 3}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesItemsPrefab.Array.data[7]
+      value: 
+      objectReference: {fileID: 2501694547114796135, guid: 97261d567ae04aa4595f10c13df1de95, type: 3}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: ChoicesItemsPrefab.Array.data[8]
+      value: 
+      objectReference: {fileID: 2501694547114796135, guid: 97261d567ae04aa4595f10c13df1de95, type: 3}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[5]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[6]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497326770120265588, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
+      propertyPath: WeightedItemsPrefab.Array.data[7]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4497326770120265594, guid: 57fd4eec0ce8ce34e95c0dc296c0615c, type: 3}
       propertyPath: m_Name
       value: BoatManager
