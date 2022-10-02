@@ -49,18 +49,22 @@ MonoBehaviour:
   - {fileID: 5658646216285111308, guid: 46c07dc07441942479d194c69adb8012, type: 3}
   - {fileID: 5658646216285111308, guid: 14ee2ae5d884f124cab530a5e9bad556, type: 3}
   - {fileID: 5658646216285111308, guid: a65db7b26d39dcb43aaba039bf552f26, type: 3}
+  - {fileID: 5658646216285111308, guid: dd24ccbcb5b699343a740641ebe955b5, type: 3}
   BoatPrefab: {fileID: 2355059698630714360, guid: 28b9078d426baf14fa8e83840672c853, type: 3}
   DeliveryBoatPrefab: {fileID: 2355059698630714360, guid: 9b4869ad60cee824d8235210e2dd47a4, type: 3}
+  GameStateManager: {fileID: 0}
   ChoicesPrefab:
   - {fileID: 5658646216285111308, guid: 260501aaa131f8743a7a6cbe1cd6c493, type: 3}
   - {fileID: 5658646216285111308, guid: fe88afad0a33c154c91a11d8c3adb969, type: 3}
   - {fileID: 5658646216285111308, guid: 12d9efd9b3f3d3b4690a9599b468e233, type: 3}
   - {fileID: 5658646216285111308, guid: 16684c6221146ee408908de6f19e0ebd, type: 3}
+  - {fileID: 5658646216285111308, guid: bf9d3ac5a9fc2144787d5187854743f7, type: 3}
   ChoicesItemsPrefab:
   - {fileID: 2501694547114796135, guid: dd13653361ff05f4e9526545215e71c3, type: 3}
   - {fileID: 2501694547114796135, guid: 1f8036cca73383a449bba133f92892af, type: 3}
   - {fileID: 2501694547114796135, guid: ea793fd90d539e44eb5f4921fd5a0589, type: 3}
   - {fileID: 2501694547114796135, guid: dfbe9b17556dc9f4180f73d42e8d722e, type: 3}
+  - {fileID: 2501694547114796135, guid: e1d66e0b49d7efb4ca8ea31815e5a2ea, type: 3}
   MaxBoats: 1
   MinBoatX: -18
   BetweenBoatTimer: {fileID: 6318988590025103166, guid: 7237fa310b089854fabf258001c45a9b, type: 3}
